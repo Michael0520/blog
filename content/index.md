@@ -28,44 +28,5 @@ Development Notes, Miscellaneous, Small Talk, and Life.
 
 ::
 
-::card-group
-  ::card
-  ---
-  title: Front-end
-  icon: 🖥
-  to: /frontend/esm
-  target: _blank
-  ---
-  Vue、Nuxt、React、Vite、Webpack、TypeScript、JavaScript、Three.js、StorkBook、React-three-fiber
-  ::
-
-  ::card
-  ---
-  title: Back-end
-  icon: 📺
-  to: /backend/docker
-  target: _blank
-  ---
-  Docker、Nginx、HTTP、Jenkins、Shell、AWS、Python
-  ::
-
-  ::card
-  ---
-  title: Ml-end
-  icon: 🤖
-  to: /backend/docker
-  target: _blank
-  ---
-  Influence、Evaluation、RAG、Vision、Voice
-  ::
-
-  ::card
-  ---
-  title:
-  icon: 🍺
-  to: /smalltalk/interview-2024
-  target: _blank
-  ---
-  Coding、Reading、Learning、Trying、Sleeping
-  ::
+::latest-posts
 ::
