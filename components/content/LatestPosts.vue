@@ -117,6 +117,7 @@
 </template>
 
 <script setup lang="ts">
+import { useDateFormat } from '@vueuse/core';
 import { Motion } from 'motion-v';
 
 const { data: latestPosts } = await useAsyncData('latest-posts', () =>
@@ -131,11 +132,7 @@ const { data: latestPosts } = await useAsyncData('latest-posts', () =>
     .find());
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  return useDateFormat(date, 'MMMM D, YYYY').value;
 }
 
 function getTopicFromPath(path: string | undefined): string {
