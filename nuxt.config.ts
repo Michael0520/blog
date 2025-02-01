@@ -30,8 +30,11 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      theme: 'github-light',
-      preload: ['dockerfile', 'mermaid', 'yaml', 'toml', 'python'],
+      theme: {
+        default: 'github-light',
+        dark: 'github-dark',
+      },
+      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini'],
     },
   },
   ogImage: {
