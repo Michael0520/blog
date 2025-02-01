@@ -131,7 +131,7 @@ const { data: latestPosts } = await useAsyncData('latest-posts', () =>
     .find());
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('zh-TW', {
+  return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
