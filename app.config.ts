@@ -16,8 +16,8 @@ export default defineAppConfig({
       showTitle: true,
       darkModeToggle: true,
       logo: {
-        light: '/logo.png',
-        dark: '/logo.png',
+        light: '/favicon-32x32.png',
+        dark: '/favicon-32x32.png',
       },
       nav: [
         {
@@ -90,6 +90,7 @@ export default defineAppConfig({
     search: {
       enable: true,
       inAside: false,
+      style: 'input' as 'input' | 'button',
     },
     gitTalk: {
       enable: true,

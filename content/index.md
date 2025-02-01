@@ -24,7 +24,7 @@ mobileRight: 'top'
 Development Notes, Miscellaneous, Small Talk, and Life.
 
 #right
-![logo](/logo.webp)
+![logo](/logo.jpg)
 
 ::
 
