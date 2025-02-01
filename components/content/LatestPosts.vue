@@ -120,29 +120,25 @@
 import { useDateFormat } from '@vueuse/core';
 import { Motion } from 'motion-v';
 
-function useLatestPosts() {
-  return useAsyncData('latest-posts', () =>
-    queryContent()
-      .where({
-        _partial: false,
-        _draft: false,
-        navigation: { $ne: false },
-      })
-      .sort({ date: -1 })
-      .limit(3)
-      .find());
-}
+defineOptions({
+  name: 'LatestPosts',
+});
 
-const { data: latestPosts } = await useLatestPosts();
+const { data: latestPosts } = await useAsyncData('latest-posts', () => queryContent()
+  .where({
+    _partial: false,
+    _draft: false,
+    navigation: { $ne: false },
+  })
+  .sort({ date: -1 })
+  .limit(3)
+  .find());
 
-function formatDate(date: string) {
-  return useDateFormat(date, 'MMMM D, YYYY').value;
-}
+const formatDate = (date: string) => useDateFormat(date, 'MMMM D, YYYY').value;
 
 function getTopicFromPath(path: string | undefined): string {
   if (!path)
     return 'General';
-  const segments = path.split('/');
-  return segments[1] || 'General';
+  return path.split('/')[1] || 'General';
 }
 </script>
