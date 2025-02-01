@@ -120,16 +120,20 @@
 import { useDateFormat } from '@vueuse/core';
 import { Motion } from 'motion-v';
 
-const { data: latestPosts } = await useAsyncData('latest-posts', () =>
-  queryContent()
-    .where({
-      _partial: false,
-      _draft: false,
-      navigation: { $ne: false },
-    })
-    .sort({ date: -1 })
-    .limit(3)
-    .find());
+function useLatestPosts() {
+  return useAsyncData('latest-posts', () =>
+    queryContent()
+      .where({
+        _partial: false,
+        _draft: false,
+        navigation: { $ne: false },
+      })
+      .sort({ date: -1 })
+      .limit(3)
+      .find());
+}
+
+const { data: latestPosts } = await useLatestPosts();
 
 function formatDate(date: string) {
   return useDateFormat(date, 'MMMM D, YYYY').value;
