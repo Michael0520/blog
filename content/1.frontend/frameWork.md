@@ -5,12 +5,7 @@ icon: 'lucide:dice-1'
 gitTalk: false
 date: 2022-10-28 00:06:03
 read: '20'
-authors:
-  - name: Michael Lo
-    username: michael860520
-    avatar: https://www.github.com/michael860520.png
-    to: https://github.com/michael860520
-    target: _blank
+ 
 ---
 
 > 前端與框架的秘密

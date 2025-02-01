@@ -5,12 +5,6 @@ icon: 'lucide:code'
 gitTalk: false
 date: 2024-03-14 12:25:00
 read: '10'
-authors:
-  - name: Michael Lo
-    username: michael860520
-    avatar: https://www.github.com/michael860520.png
-    to: https://github.com/michael860520
-    target: _blank
 ---
 
 ESM 模組是一種在 JavaScript 中進行模組化開發的標準。它允許開發者將程式碼分割成多個模組，並且可以在需要的地方引入這些模組。ESM 模組使用 `import` 和 `export` 關鍵字來定義和使用模組。

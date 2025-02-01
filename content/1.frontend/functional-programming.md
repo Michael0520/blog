@@ -5,12 +5,7 @@ icon: 'lucide:dice-4'
 gitTalk: false
 date: 2022-05-07 13:15:06
 read: '20'
-authors:
-  - name: Michael Lo
-    username: michael860520
-    avatar: https://www.github.com/michael860520.png
-    to: https://github.com/michael860520
-    target: _blank
+ 
 ---
 
 > 簡易函式封裝

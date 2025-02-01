@@ -6,12 +6,7 @@ gitTalk: true
 breadcrumb: false
 date: 2022-10-28 23:45:03
 read: '1'
-authors:
-  - name: Michael Lo
-    username: michael860520
-    avatar: https://www.github.com/michael860520.png
-    to: https://github.com/michael860520
-    target: _blank
+ 
 ---
 
 寫部落格3年了

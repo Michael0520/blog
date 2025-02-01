@@ -15,10 +15,10 @@
         <LayoutSearchButton v-if="!config.search.inAside && config.search.style === 'input'" />
         <div class="flex">
           <LayoutSearchButton v-if="!config.search.inAside && config.search.style === 'button'" />
-          <ThemePopover v-if="config.theme.customizable" />
+          <!-- <ThemePopover v-if="config.theme.customizable" /> -->
           <DarkModeToggle v-if="config.header.darkModeToggle" />
-          <I18nPopup v-if="config.theme.customizable" />
-          <NuxtLink
+          <!-- <I18nPopup v-if="config.theme.customizable" /> -->
+          <!-- <NuxtLink
             v-for="(link, i) in config.header.links"
             :key="i"
             :to="link?.to"
@@ -27,7 +27,7 @@
             <UiButton variant="ghost" size="icon" class="flex gap-2">
               <SmartIcon v-if="link?.icon" :name="link.icon" :size="18" />
             </UiButton>
-          </NuxtLink>
+          </NuxtLink> -->
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import I18nPopup from '../I18nPopup.vue';
+// import I18nPopup from '../I18nPopup.vue';
 
 const config = useConfig();
 </script>

@@ -5,12 +5,7 @@ icon: 'lucide:dice-6'
 gitTalk: false
 date: 2022-10-28 23:45:03
 read: '20'
-authors:
-  - name: Michael Lo
-    username: michael860520
-    avatar: https://www.github.com/michael860520.png
-    to: https://github.com/michael860520
-    target: _blank
+ 
 ---
 
 > DOM 到底是什麼呢?
