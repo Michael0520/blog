@@ -4,7 +4,7 @@
       v-bind="props"
       :class="
         cn(
-          'relative flex flex-col h-[528px] items-center rounded-xl justify-center bg-[#3F4AE820] dark:bg-zinc-900 text-slate-950 transition-bg',
+          'h-full relative flex flex-col items-center rounded-xl justify-center bg-[#3F4AE820] dark:bg-zinc-900 text-slate-950 transition-bg',
           props.class,
         )
       "

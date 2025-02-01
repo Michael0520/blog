@@ -18,7 +18,7 @@
         }"
         class="relative flex flex-col items-center justify-center gap-4 rounded-xl  px-4"
       >
-        <div class="text-center text-4xl font-bold dark:text-white">
+        <div class="text-center text-4xl font-medium dark:text-white">
           Latest Blog Posts
         </div>
         <!-- <div class="py-4 text-base font-extralight dark:text-neutral-200">
