@@ -1,0 +1,4 @@
+title: Frontend
+icon: lucide:rocket
+navigation.redirect: /frontend/
+collapse: true

@@ -1,0 +1,4 @@
+title: LeetCode
+icon: lucide:code
+navigation.redirect: /leetcode/leetcode-001
+collapse: true
