@@ -6,11 +6,11 @@ export default defineAppConfig({
       ogImageComponent: 'BlogPost',
       ogImageColor: 'dark',
     },
-    theme: {
-      customizable: true,
-      color: 'orange',
-      radius: 0.5,
-    },
+    // theme: {
+    //   customizable: true,
+    //   color: 'orange',
+    //   radius: 0.5,
+    // },
     header: {
       title: 'Michael\'s Blog',
       showTitle: true,
