@@ -12,7 +12,7 @@ const content = {
     {
       label: 'Read Blog Posts',
       variant: 'primary',
-      link: '/frontend/esm',
+      link: '/frontend/web-performance',
     },
     // {
     //   label: 'About Me',

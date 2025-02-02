@@ -22,12 +22,13 @@ export default defineAppConfig({
       nav: [
         {
           title: 'FrontEnd',
-          links: [{
-            title: 'ESM',
-            to: '/frontend/esm',
-            description: 'ESM 模組化',
-            icon: 'lucide:rocket',
-          }],
+          to: '/frontend/web-performance',
+          // links: [{
+          //   title: 'ESM',
+          //   to: '/frontend/esm',
+          //   description: 'ESM 模組化',
+          //   icon: 'lucide:rocket',
+          // }],
         },
         { title: 'BackEnd', to: '/backend' },
         { title: 'SmallTalk', to: '/smalltalk' },
