@@ -2,3 +2,6 @@ title: LeetCode
 icon: lucide:code
 navigation.redirect: /leetcode/grind75/grind-001-two-sums
 collapse: true
+navBadges:
+  - value: Update
+    type: Primary
