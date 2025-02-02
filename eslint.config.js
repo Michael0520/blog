@@ -16,7 +16,7 @@ export default antfu({
   rules: {
     'style/brace-style': ['warn', '1tbs', { allowSingleLine: true }],
     'vue/block-order': ['error', {
-      order: ['template', 'script', 'style'],
+      order: ['script', 'template', 'style'],
     }],
     'tailwind/classnames-order': ['warn'],
     'tailwind/enforces-negative-arbitrary-values': ['warn'],
