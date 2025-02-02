@@ -1,5 +1,5 @@
 ---
-title: 利Encode、Decode、Hash 是幹甚麼東西?
+title: Encode、Decode、Hash 是甚麼東西?
 description:  編碼、解碼、加密
 icon: 'lucide:lock-keyhole'
 gitTalk: false
