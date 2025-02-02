@@ -1,3 +1,9 @@
+<script setup lang="ts">
+// import I18nPopup from '../I18nPopup.vue';
+
+const config = useConfig();
+</script>
+
 <template>
   <header
     class="sticky top-0 z-40 bg-background/80 backdrop-blur-lg"
@@ -16,7 +22,7 @@
         <div class="flex">
           <LayoutSearchButton v-if="!config.search.inAside && config.search.style === 'button'" />
           <!-- <ThemePopover v-if="config.theme.customizable" /> -->
-          <DarkModeToggle v-if="config.header.darkModeToggle" />
+          <!-- <DarkModeToggle v-if="config.header.darkModeToggle" /> -->
           <!-- <I18nPopup v-if="config.theme.customizable" /> -->
           <!-- <NuxtLink
             v-for="(link, i) in config.header.links"
@@ -36,9 +42,3 @@
     </div>
   </header>
 </template>
-
-<script setup lang="ts">
-// import I18nPopup from '../I18nPopup.vue';
-
-const config = useConfig();
-</script>
