@@ -1,4 +1,4 @@
 title: Frontend
 icon: lucide:rocket
-navigation.redirect: /frontend/
+navigation.redirect: /frontend/web-performance
 collapse: true
