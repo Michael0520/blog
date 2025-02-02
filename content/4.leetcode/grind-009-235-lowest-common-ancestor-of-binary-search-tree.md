@@ -1,12 +1,7 @@
 ---
 title: Medium 235. Lowest Common Ancestor of a Binary Search Tree
-date: "2025-01-17"
+date: 2025-01-17
 description: In this blog I will share a solution to the Lowest Common Ancestor of a Binary Search Tree problem.
-image: /blogs-img/leetcode-grind-75.png
-alt: Lowest Common Ancestor of a Binary Search Tree solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ["leetcode", "javascript"]
-published: true
 ---
 
 ## 235. Lowest Common Ancestor of a Binary Search Tree
@@ -46,8 +41,8 @@ published: true
      3   5
 ```
 
-- **輸入**: `root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8`  
-- **輸出**: `6`  
+- **輸入**: `root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8`
+- **輸出**: `6`
 - **解釋**: 節點 2 和節點 8 的最低共同父層級節點是 6，因為 6 是同時包含 2 和 8 的最小節點
 
 ---
@@ -66,8 +61,8 @@ published: true
      3   5
 ```
 
-- **輸入**: `root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4`  
-- **輸出**: `2`  
+- **輸入**: `root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4`
+- **輸出**: `2`
 - **解釋**: 節點 2 和節點 4 的最低共同父層級節點是 2，因為節點 2 本身就是節點 4 的父層級
 
 ---
@@ -94,21 +89,22 @@ published: true
 
 ```typescript
 function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
-    if (!root) return null;
+  if (!root)
+    return null;
 
-    const currentVal = root.val;
-    const minTarget = Math.min(p.val, q.val);
-    const maxTarget = Math.max(p.val, q.val);
+  const currentVal = root.val;
+  const minTarget = Math.min(p.val, q.val);
+  const maxTarget = Math.max(p.val, q.val);
 
-    if (currentVal > maxTarget) {
-        return lowestCommonAncestor(root.left, p, q);
-    }
+  if (currentVal > maxTarget) {
+    return lowestCommonAncestor(root.left, p, q);
+  }
 
-    if (currentVal < minTarget) {
-        return lowestCommonAncestor(root.right, p, q);
-    }
+  if (currentVal < minTarget) {
+    return lowestCommonAncestor(root.right, p, q);
+  }
 
-    return root;
+  return root;
 }
 ```
 

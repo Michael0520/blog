@@ -1,12 +1,7 @@
 ---
 title: Easy 226. Invert Binary Tree
-date: "2025-01-14"
+date: 2025-01-14
 description: In this blog I will share a solution to the Invert Binary Tree problem.
-image: /blogs-img/leetcode-grind-75.png
-alt: Invert Binary Tree solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ["leetcode", "javascript"]
-published: true
 ---
 
 ## Invert Binary Tree
@@ -57,12 +52,12 @@ Output:
 
 1. **基本概念**
 
-   ```javascript
+   ```bash
    // 原始樹
         4
       /   \
      2     7
-   
+
    // 翻轉後
         4
       /   \
@@ -73,14 +68,14 @@ Output:
 
    ```javascript
    // 1. 先儲存左子樹
-   temp = root.left  // (2)
-   
+   temp = root.left; // (2)
+
    // 2. 左邊換成右子樹
-   root.left = root.right  // (7)
-   
+   root.left = root.right; // (7)
+
    // 3. 右邊換成原本的左子樹
-   root.right = temp  // (2)
-   
+   root.right = temp; // (2)
+
    // 4. 對子節點重複此過程
    ```
 
@@ -92,18 +87,19 @@ Output:
 ## 程式碼
 
 ```javascript
-const invertTree = (root) => {
-    // 處理邊界情況：空節點直接返回
-    if (!root) return null;
-    
-    // 使用解構賦值交換左右子樹
-    [root.left, root.right] = [
-        invertTree(root.right),  // 遞迴處理右子樹
-        invertTree(root.left)    // 遞迴處理左子樹
-    ];
-    
-    return root;
-};
+function invertTree(root) {
+  // 處理邊界情況：空節點直接返回
+  if (!root)
+    return null;
+
+  // 使用解構賦值交換左右子樹
+  [root.left, root.right] = [
+    invertTree(root.right), // 遞迴處理右子樹
+    invertTree(root.left) // 遞迴處理左子樹
+  ];
+
+  return root;
+}
 ```
 
 ## 程式碼說明

@@ -1,12 +1,7 @@
 ---
 title: Easy 125. Valid Palindrome
-date: "2025-01-14"
+date: 2025-01-14
 description: In this blog I will share a solution to the Valid Palindrome problem.
-image: /blogs-img/leetcode-grind-75.png
-alt: Valid Palindrome solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ["leetcode", "javascript"]
-published: true
 ---
 
 ## Valid Palindrome
@@ -45,23 +40,23 @@ Explanation: "raceacar" 不是回文
 
 1. **清理字串**
 
-   ```javascript
-   "A man, a plan, a canal: Panama"
-   ↓ (轉小寫 + 移除特殊字元)
-   "amanaplanacanalpanama"
+   ```bash
+   'A man, a plan, a canal: Panama';
+   // (轉小寫 + 移除特殊字元)
+   'amanaplanacanalpanama';
    ```
 
 2. **使用雙指針比較**
 
-   ```javascript
+   ```bash
    "amanaplanacanalpanama"
-    L                    R    // L = left pointer, R = right pointer
+      (L)                    `R`    // L = left pointer, R = right pointer
 
    "amanaplanacanalpanama"
-     L                  R     // 如果相同，兩個指針往中間移動
+     (L)                  (R)     // 如果相同，兩個指針往中間移動
 
    "amanaplanacanalpanama"
-            L    R            // 一直比較到指針相遇
+            (L)    (R)            // 一直比較到指針相遇
    ```
 
 ### 複雜度分析
@@ -72,21 +67,23 @@ Explanation: "raceacar" 不是回文
 ## 程式碼
 
 ```javascript
-const isPalindrome = (s) => {
+function isPalindrome(s) {
   // 1. 使用 optional chaining 和 nullish coalescing
-  const cleanStr = s?.toLowerCase()?.replace(/[^a-z0-9]/g, "") ?? ""
+  const cleanStr = s?.toLowerCase()?.replace(/[^a-z0-9]/g, '') ?? '';
 
   // 2. 使用解構賦值設置指針
-  let [left, right] = [0, cleanStr.length - 1]
+  let [left, right] = [0, cleanStr.length - 1];
 
   // 3. 使用雙指針比較
   while (left < right) {
     // 使用 early return pattern
-    if (cleanStr[left] !== cleanStr[right]) return false
-    ;[left, right] = [left + 1, right - 1]
+    if (cleanStr[left] !== cleanStr[right]) {
+      return false
+      ;
+    }[left, right] = [left + 1, right - 1];
   }
 
-  return true
+  return true;
 }
 ```
 

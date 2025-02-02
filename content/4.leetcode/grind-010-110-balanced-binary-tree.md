@@ -1,12 +1,7 @@
 ---
-title: '[Easy] 110. Balanced Binary Tree'
-date: '2025-01-19'
-description: 'In this blog I will share a solution to the Balanced Binary Tree problem'
-image: /blogs-img/leetcode-grind-75.png
-alt: Balanced Binary Tree solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ['leetcode', 'javascript']
-published: true
+title: Easy 110. Balanced Binary Tree
+date: 2025-01-19 23:00:00
+description: In this blog I will share a solution to the Balanced Binary Tree problem
 ---
 
 ## 110. Balanced Binary Tree
@@ -76,37 +71,39 @@ published: true
 
 ```typescript
 interface TreeNode {
-    val: number;
-    left: TreeNode | null;
-    right: TreeNode | null;
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
 }
 
-const isBalanced = (root: TreeNode | null): boolean => {
-    // 使用 -1 作為不平衡的標記
-    const getHeight = (node: TreeNode | null): number => {
-        // 基礎情況：空節點高度為 0
-        if (!node) return 0;
-        
-        // 解構以提高可讀性
-        const { left, right } = node;
-        
-        // 遞迴計算子樹高度
-        const leftHeight = getHeight(left);
-        const rightHeight = getHeight(right);
-        
-        // 優化：任一子樹不平衡，直接返回 -1
-        if (leftHeight === -1 || rightHeight === -1) return -1;
-        
-        // 計算高度差
-        const heightDiff = Math.abs(leftHeight - rightHeight);
-        
-        // 如果高度差 > 1，返回 -1 表示不平衡
-        // 否則返回當前子樹的高度
-        return heightDiff > 1 ? -1 : Math.max(leftHeight, rightHeight) + 1;
-    };
-    
-    return getHeight(root) !== -1;
-};
+function isBalanced(root: TreeNode | null): boolean {
+  // 使用 -1 作為不平衡的標記
+  const getHeight = (node: TreeNode | null): number => {
+    // 基礎情況：空節點高度為 0
+    if (!node)
+      return 0;
+
+    // 解構以提高可讀性
+    const { left, right } = node;
+
+    // 遞迴計算子樹高度
+    const leftHeight = getHeight(left);
+    const rightHeight = getHeight(right);
+
+    // 優化：任一子樹不平衡，直接返回 -1
+    if (leftHeight === -1 || rightHeight === -1)
+      return -1;
+
+    // 計算高度差
+    const heightDiff = Math.abs(leftHeight - rightHeight);
+
+    // 如果高度差 > 1，返回 -1 表示不平衡
+    // 否則返回當前子樹的高度
+    return heightDiff > 1 ? -1 : Math.max(leftHeight, rightHeight) + 1;
+  };
+
+  return getHeight(root) !== -1;
+}
 ```
 
 ## 技術亮點

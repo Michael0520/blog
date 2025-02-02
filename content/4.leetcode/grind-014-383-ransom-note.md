@@ -1,12 +1,8 @@
 ---
-title: '[Easy] 383. Ransom Note'
-date: '2025-01-31'
-description: 'In this blog I will share a solution to the Ransom Note problem'
-image: /blogs-img/leetcode-grind-75.png
-alt: Ransom Note solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ['leetcode', 'javascript']
-published: true
+title: Easy 383. Ransom Note
+description: In this blog I will share a solution to the Ransom Note problem
+date: 2025-01-31 23:00:00
+read: '10'
 ---
 
 ## Ransom Note
@@ -25,7 +21,7 @@ PS：每個字母只能使用一次
 
 ```bash
 Example 1:
-Input: 
+Input:
     ransomNote = "a"
     magazine = "b"
 Output: false
@@ -73,31 +69,33 @@ flowchart TD
 ## 程式碼實作
 
 ```typescript
-export const canConstruct = (ransomNote: string, magazine: string): boolean => {
-    // 如果 ransomNote 比 magazine 長，一定不夠用
-    if (ransomNote.length > magazine.length) return false;
+export function canConstruct(ransomNote: string, magazine: string): boolean {
+  // 如果 ransomNote 比 magazine 長，一定不夠用
+  if (ransomNote.length > magazine.length)
+    return false;
 
-    // 使用 Map 來記錄每個字母的數量
-    const letterMap = new Map<string, number>();
-    
-    // 統計 magazine 中每個字母的數量
-    for (const char of magazine) {
-        letterMap.set(char, (letterMap.get(char) || 0) + 1);
-    }
+  // 使用 Map 來記錄每個字母的數量
+  const letterMap = new Map<string, number>();
 
-    // 檢查 ransomNote 中的每個字母
-    for (const char of ransomNote) {
-        const count = letterMap.get(char) || 0;
-        
-        // 如果字母不夠用了
-        if (count === 0) return false;
-        
-        // 使用一個字母
-        letterMap.set(char, count - 1);
-    }
+  // 統計 magazine 中每個字母的數量
+  for (const char of magazine) {
+    letterMap.set(char, (letterMap.get(char) || 0) + 1);
+  }
 
-    return true;
-};
+  // 檢查 ransomNote 中的每個字母
+  for (const char of ransomNote) {
+    const count = letterMap.get(char) || 0;
+
+    // 如果字母不夠用了
+    if (count === 0)
+      return false;
+
+    // 使用一個字母
+    letterMap.set(char, count - 1);
+  }
+
+  return true;
+}
 ```
 
 ## 複雜度分析

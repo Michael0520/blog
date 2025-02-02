@@ -2,8 +2,7 @@
 title: GitHub Copilot 是什麼?
 description: GitHub Copilot 是甚麼?
 icon: 'lucide:bot'
-
-date: 2025-02-01 22:14:47
+date: 2025-02-01 23:00:00
 read: '10'
 ---
 

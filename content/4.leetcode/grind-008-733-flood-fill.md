@@ -1,12 +1,7 @@
 ---
 title: Easy 733. Flood Fill
-date: "2025-01-17"
+date: 2025-01-17
 description: In this blog I will share a solution to the Flood Fill problem.
-image: /blogs-img/leetcode-grind-75.png
-alt: Flood Fill solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ["leetcode", "javascript"]
-published: true
 ---
 
 ## Flood Fill
@@ -24,12 +19,12 @@ published: true
 Example 1:
 
 ```bash
-Input: 
+Input:
 image = [
   [1,1,1],
   [1,1,0],
   [1,0,1]
-], 
+],
 sr = 1, sc = 1, color = 2
 
 Output: [
@@ -59,26 +54,26 @@ Explanation: 從位置 (1,1) 開始，所有與其相連且值為 1 的像素都
 ```mermaid
 stateDiagram-v2
     [*] --> Start
-    
+
     state FloodFill {
         Start --> CheckPixel
         CheckPixel --> Fill: 顏色相同
         CheckPixel --> Skip: 顏色不同
         Fill --> Explore: 填充當前像素
-        
+
         state Explore {
             [*] --> CheckUp
             [*] --> CheckRight
             [*] --> CheckDown
             [*] --> CheckLeft
-            
+
             CheckUp --> CheckPixel: 有效座標
             CheckRight --> CheckPixel: 有效座標
             CheckDown --> CheckPixel: 有效座標
             CheckLeft --> CheckPixel: 有效座標
         }
     }
-    
+
     Skip --> [*]
     Explore --> [*]: 所有方向都檢查完
 ```
@@ -96,45 +91,43 @@ type Image = number[][];
  * @param color - 新的顏色值
  * @returns 填充後的圖片
  */
-const floodFill = (
-    image: Image, 
-    sr: number, 
-    sc: number, 
-    color: number
-): Image => {
-    // 取得圖片尺寸
-    const rows = image.length;
-    const cols = image[0].length;
-    
-    // 取得原始顏色
-    const originalColor = image[sr][sc];
-    
-    // 如果新舊顏色相同，直接返回
-    if (originalColor === color) return image;
-    
-    // DFS 填充函數
-    const fill = (r: number, c: number): void => {
-        // 檢查邊界和顏色
-        if (
-            r < 0 || r >= rows || 
-            c < 0 || c >= cols || 
-            image[r][c] !== originalColor
-        ) return;
-        
-        // 填充當前像素
-        image[r][c] = color;
-        
-        // 遞迴填充四個方向
-        fill(r - 1, c);  // 上
-        fill(r + 1, c);  // 下
-        fill(r, c - 1);  // 左
-        fill(r, c + 1);  // 右
-    };
-    
-    // 開始填充
-    fill(sr, sc);
+function floodFill(image: Image, sr: number, sc: number, color: number): Image {
+  // 取得圖片尺寸
+  const rows = image.length;
+  const cols = image[0].length;
+
+  // 取得原始顏色
+  const originalColor = image[sr][sc];
+
+  // 如果新舊顏色相同，直接返回
+  if (originalColor === color)
     return image;
-};
+
+  // DFS 填充函數
+  const fill = (r: number, c: number): void => {
+    // 檢查邊界和顏色
+    if (
+      r < 0 || r >= rows
+      || c < 0 || c >= cols
+      || image[r][c] !== originalColor
+    ) {
+      return;
+    }
+
+    // 填充當前像素
+    image[r][c] = color;
+
+    // 遞迴填充四個方向
+    fill(r - 1, c); // 上
+    fill(r + 1, c); // 下
+    fill(r, c - 1); // 左
+    fill(r, c + 1); // 右
+  };
+
+  // 開始填充
+  fill(sr, sc);
+  return image;
+}
 ```
 
 ## 狀態說明

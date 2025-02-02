@@ -5,12 +5,6 @@ icon: lucide:code
 gitTalk: false
 date: 2025-01-11
 read: '5'
-authors:
-  - name: Michael Lo
-    username: michael860520
-    avatar: /blogs-img/leetcode-grind-75.png
-    to: https://github.com/michael860520
-    target: _blank
 ---
 
 ## Valid Parentheses

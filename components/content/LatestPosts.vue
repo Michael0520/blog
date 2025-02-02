@@ -1,7 +1,60 @@
+<script setup lang="ts">
+import { useDateFormat } from '@vueuse/core';
+import { Motion } from 'motion-v';
+import { onMounted, ref } from 'vue';
+
+defineOptions({
+  name: 'LatestPosts',
+});
+
+interface Post {
+  title: string;
+  description: string;
+  date: string;
+  _path: string;
+}
+
+const latestPosts = ref<Post[]>([]);
+
+async function fetchPosts() {
+  try {
+    const posts = await queryContent()
+      .where({
+        _partial: false,
+        _draft: false,
+        navigation: { $ne: false },
+      })
+      .sort({ date: -1 })
+      .limit(3)
+      .find();
+
+    latestPosts.value = (posts as unknown) as Post[];
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    latestPosts.value = [];
+  }
+}
+
+onMounted(() => {
+  fetchPosts();
+});
+
+function formatDate(date: string) {
+  if (!date)
+    return '';
+  return useDateFormat(date, 'MMMM D, YYYY').value;
+}
+
+function getTopicFromPath(path: string | undefined): string {
+  if (!path)
+    return 'General';
+  const segments = path.split('/');
+  return segments[1] || 'General';
+}
+</script>
+
 <template>
   <section class="relative mt-10 flex flex-col lg:grid lg:grid-cols-4 lg:gap-8">
-    <!-- 左側標題區塊 -->
-
     <AuroraBackground>
       <Motion
         as="div"
@@ -21,21 +74,11 @@
         <div class="text-center text-4xl font-medium dark:text-white">
           Latest Blog Posts
         </div>
-        <!-- <div class="py-4 text-base font-extralight dark:text-neutral-200">
-          And this, is chemical burn.
-        </div> -->
-        <!-- <button
-          class="w-fit rounded-full bg-black px-4 py-2 text-white dark:bg-white dark:text-black"
-        >
-          Burn it now
-        </button> -->
       </Motion>
     </AuroraBackground>
 
-    <!-- 右側文章列表區塊 -->
     <div class="col-span-3">
       <div class="space-y-6">
-        <!-- 第一張卡片 - 最新文章 -->
         <article
           v-if="latestPosts?.[0]"
           class="group relative flex flex-col space-y-4 rounded-xl border bg-gradient-to-b from-background to-muted/20 p-6 shadow-sm transition-all hover:bg-muted/20 hover:shadow-lg"
@@ -72,7 +115,6 @@
           </div>
         </article>
 
-        <!-- 其餘兩張卡片 -->
         <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
           <article
             v-for="post in latestPosts?.slice(1)"
@@ -115,30 +157,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import { useDateFormat } from '@vueuse/core';
-import { Motion } from 'motion-v';
-
-defineOptions({
-  name: 'LatestPosts',
-});
-
-const { data: latestPosts } = await useAsyncData('latest-posts', () => queryContent()
-  .where({
-    _partial: false,
-    _draft: false,
-    navigation: { $ne: false },
-  })
-  .sort({ date: -1 })
-  .limit(3)
-  .find());
-
-const formatDate = (date: string) => useDateFormat(date, 'MMMM D, YYYY').value;
-
-function getTopicFromPath(path: string | undefined): string {
-  if (!path)
-    return 'General';
-  return path.split('/')[1] || 'General';
-}
-</script>

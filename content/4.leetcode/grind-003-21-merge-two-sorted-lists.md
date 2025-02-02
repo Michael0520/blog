@@ -1,12 +1,8 @@
 ---
 title: Easy 21 - Merge Two Sorted Lists
-date: "2025-01-13"
+date: 2025-01-13
 description: In this blog I will share a solution to the Merge Two Sorted Lists problem.
-image: /blogs-img/leetcode-grind-75.png
-alt: Merge Two Sorted Lists solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ["leetcode", "javascript"]
-published: true
+read: '10'
 ---
 
 ## Merge Two Sorted Lists
@@ -95,13 +91,14 @@ stateDiagram-v2
 ## 實作
 
 ```javascript
-const mergeTwoLists = (list1, list2) => {
+function mergeTwoLists(list1, list2) {
   // 使用 ?? 運算子處理空值情況
-  if (!list1 || !list2) return list1 ?? list2
+  if (!list1 || !list2)
+    return list1 ?? list2;
 
-  const [smaller, bigger] = list1.val <= list2.val ? [list1, list2] : [list2, list1]
-  smaller.next = mergeTwoLists(smaller.next, bigger)
-  return smaller
+  const [smaller, bigger] = list1.val <= list2.val ? [list1, list2] : [list2, list1];
+  smaller.next = mergeTwoLists(smaller.next, bigger);
+  return smaller;
 }
 ```
 

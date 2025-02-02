@@ -1,12 +1,7 @@
 ---
-title: '[Easy] 278. First Bad Version'
-date: '2025-01-26'
-description: 'In this blog I will share a solution to the First Bad Version problem'
-image: /blogs-img/leetcode-grind-75.png
-alt: First Bad Version solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ['leetcode', 'javascript']
-published: true
+title: Easy 278. First Bad Version
+description: In this blog I will share a solution to the First Bad Version problem
+date: 2025-01-26 23:00:00
 ---
 
 ## First Bad Version
@@ -65,24 +60,25 @@ flowchart TD
 ```typescript
 type FirstBadVersionFn = (n: number) => number;
 
-export const solution = (isBadVersion: (version: number) => boolean): FirstBadVersionFn => {
-    // 使用遞迴來實現二分搜尋
-    const binarySearch = ({ left, right }: { left: number; right: number }): number => {
-        // 基本情況：找到第一個壞版本
-        if (left === right) return left;
+export function solution(isBadVersion: (version: number) => boolean): FirstBadVersionFn {
+  // 使用遞迴來實現二分搜尋
+  const binarySearch = ({ left, right }: { left: number; right: number }): number => {
+    // 基本情況：找到第一個壞版本
+    if (left === right)
+      return left;
 
-        // 避免整數溢出的寫法
-        const mid = left + Math.floor((right - left) / 2);
-        
-        return isBadVersion(mid)
-            // 如果是壞版本，第一個壞版本可能是這個或在左邊
-            ? binarySearch({ left, right: mid })
-            // 如果是好版本，第一個壞版本一定在右邊
-            : binarySearch({ left: mid + 1, right });
-    };
+    // 避免整數溢出的寫法
+    const mid = left + Math.floor((right - left) / 2);
 
-    return (n: number): number => binarySearch({ left: 1, right: n });
-};
+    return isBadVersion(mid)
+    // 如果是壞版本，第一個壞版本可能是這個或在左邊
+      ? binarySearch({ left, right: mid })
+    // 如果是好版本，第一個壞版本一定在右邊
+      : binarySearch({ left: mid + 1, right });
+  };
+
+  return (n: number): number => binarySearch({ left: 1, right: n });
+}
 ```
 
 ## 程式碼說明
@@ -93,13 +89,13 @@ export const solution = (isBadVersion: (version: number) => boolean): FirstBadVe
 
     ```typescript
     // 找中間點的兩種寫法：
-    
+
     // 寫法一：直接相加除二
     const mid = Math.floor((left + right) / 2);
-    
+
     // 寫法二：計算距離的一半
     const mid = left + Math.floor((right - left) / 2);
-    
+
     // 兩種寫法結果相同，但第二種寫法更安全
     // 因為即使 left 和 right 很大，right - left 的結果不會太大
     ```
@@ -128,13 +124,13 @@ export const solution = (isBadVersion: (version: number) => boolean): FirstBadVe
 
    ```typescript
    // 在實務上的應用場景
-   const findFirstBugCommit = async (commits: string[]) => {
-       const isBuggy = async (commit: string) => {
-           const result = await runTests(commit);
-           return !result.success;
-       };
+   async function findFirstBugCommit(commits: string[]) {
+     const isBuggy = async (commit: string) => {
+       const result = await runTests(commit);
+       return !result.success;
+     };
 
-       const firstBad = solution(isBuggy);
-       return commits[firstBad(commits.length) - 1];
-   };
+     const firstBad = solution(isBuggy);
+     return commits[firstBad(commits.length) - 1];
+   }
    ```

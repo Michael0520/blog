@@ -1,12 +1,7 @@
 ---
-title: '[Easy] 232. Implement Queue using Stacks'
-date: '2025-01-26'
-description: 'In this blog I will share a solution to the Implement Queue using Stacks problem'
-image: /blogs-img/leetcode-grind-75.png
-alt: Implement Queue using Stacks solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ['leetcode', 'javascript']
-published: true
+title: Easy 232. Implement Queue using Stacks
+description: In this blog I will share a solution to the Implement Queue using Stacks problem
+date: 2025-01-26 23:00:00
 ---
 
 ## Implement Queue using Stacks
@@ -50,18 +45,18 @@ flowchart LR
 ## 程式碼實作
 
 ```typescript
-type Queue<T> = {
+interface Queue<T> {
   push: (x: T) => void;
   pop: () => T;
   peek: () => T;
   empty: () => boolean;
-};
+}
 
-const createQueue = <T>(): Queue<T> => {
+function createQueue<T>(): Queue<T> {
   // 使用兩個堆疊來實現 FIFO 佇列
   const stacks = {
-    in: [] as T[],   // 用於新增元素
-    out: [] as T[]   // 用於取出元素
+    in: [] as T[], // 用於新增元素
+    out: [] as T[] // 用於取出元素
   };
 
   // 當輸出堆疊為空時，將輸入堆疊的元素轉移到輸出堆疊
@@ -72,7 +67,7 @@ const createQueue = <T>(): Queue<T> => {
       // 將輸入堆疊的所有元素反轉後放入輸出堆疊
       // 反轉是為了保持原始的插入順序
       stacks.out.push(...stacks.in.reverse());
-      
+
       // 清空輸入堆疊，避免重複轉移
       stacks.in.length = 0;
     }
@@ -97,14 +92,14 @@ const createQueue = <T>(): Queue<T> => {
     // 檢查兩個堆疊是否都為空
     empty: () => !stacks.in.length && !stacks.out.length
   };
-};
+}
 
 // 使用範例
 const queue = createQueue<number>();
 queue.push(1);
 queue.push(2);
-console.log(queue.peek());  // 1
-console.log(queue.pop());   // 1
+console.log(queue.peek()); // 1
+console.log(queue.pop()); // 1
 console.log(queue.empty()); // false
 ```
 

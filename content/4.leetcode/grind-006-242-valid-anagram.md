@@ -1,12 +1,7 @@
 ---
 title: Easy 242. Valid Anagram
-date: "2025-01-15"
+date: 2025-01-15
 description: In this blog I will share a solution to the Valid Anagram problem.
-image: /blogs-img/leetcode-grind-75.png
-alt: Valid Anagram solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ["leetcode", "javascript"]
-published: true
 ---
 
 ## Valid Anagram
@@ -47,7 +42,7 @@ Explanation: "rat" 不可能重新排列得到 "car"
    - 使用 Map 記錄第一個字串中每個字母出現的次數
    - 例如 "anagram" 會得到：
 
-     ```javascript
+     ```bash
      Map {
        'a' => 3,
        'n' => 1,
@@ -65,29 +60,30 @@ Explanation: "rat" 不可能重新排列得到 "car"
 ## 程式碼
 
 ```javascript
-const isAnagram = (s, t) => {
-    // 長度檢查
-    if (s.length !== t.length) return false;
+function isAnagram(s, t) {
+  // 長度檢查
+  if (s.length !== t.length)
+    return false;
 
-    // 建立頻率 Map
-    const freq = new Map();
-    
-    // 統計第一個字串
-    for (const char of s) {
-        freq.set(char, (freq.get(char) || 0) + 1);
+  // 建立頻率 Map
+  const freq = new Map();
+
+  // 統計第一個字串
+  for (const char of s) {
+    freq.set(char, (freq.get(char) || 0) + 1);
+  }
+
+  // 驗證第二個字串
+  for (const char of t) {
+    // 字母不存在或次數為 0
+    if (!freq.has(char) || freq.get(char) === 0) {
+      return false;
     }
-    
-    // 驗證第二個字串
-    for (const char of t) {
-        // 字母不存在或次數為 0
-        if (!freq.has(char) || freq.get(char) === 0) {
-            return false;
-        }
-        freq.set(char, freq.get(char) - 1);
-    }
-    
-    return true;
-};
+    freq.set(char, freq.get(char) - 1);
+  }
+
+  return true;
+}
 ```
 
 ### 複雜度分析

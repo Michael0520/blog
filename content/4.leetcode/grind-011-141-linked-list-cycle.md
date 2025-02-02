@@ -1,12 +1,7 @@
 ---
-title: '[Easy] 141. Linked List Cycle'
-date: '2025-01-20'
-description: 'In this blog I will share a solution to the Linked List Cycle problem'
-image: /blogs-img/leetcode-grind-75.png
-alt: Linked List Cycle solution
-ogImage: /blogs-img/leetcode-grind-75.png
-tags: ['leetcode', 'javascript']
-published: true
+title: Easy 141. Linked List Cycle
+date: 2025-01-20 23:00:00
+description: In this blog I will share a solution to the Linked List Cycle problem
 ---
 
 ## 141. Linked List Cycle
@@ -21,25 +16,25 @@ cycle 的形成與節點值無關，而是取決於節點之間的連接方式�
 
 1. **無 cycle 的情況**：
 
-   ```typescript
+   ```bash
    // 正常的鏈結串列，像排隊一樣
    1 → 2 → 3 → 4 → null
    // 每個人只看著前面一個人
    // 最後一個人前面沒有人了（指向 null）
-   
+
    // 即使數字亂序也可以是無 cycle
    3 → 1 → 4 → 2 → null
    ```
 
 2. **有 cycle 的情況**：
 
-   ```typescript
+   ```bash
    // 像圓桌會議一樣
    1 → 2 → 3 → 4
    ↑_______________↓
    // 每個人都看著前面一個人
    // 最後一個人看著第一個人，形成 cycle
-   
+
    // 數字亂序一樣可以形成 cycle
    3 → 1 → 4 → 2
    ↑_______________↓
@@ -59,7 +54,7 @@ cycle 的形成與節點值無關，而是取決於節點之間的連接方式�
 
    objA.next = objB;
    objB.next = objC;
-   objC.next = objA;  // 形成 cycle！
+   objC.next = objA; // 形成 cycle！
    ```
 
 2. **死鎖檢測**
@@ -67,31 +62,31 @@ cycle 的形成與節點值無關，而是取決於節點之間的連接方式�
    ```typescript
    // 程序互相等待形成 cycle
    async function processA() {
-       await lockB.acquire();
-       await lockA.acquire();  // 死鎖！
+     await lockB.acquire();
+     await lockA.acquire(); // 死鎖！
    }
 
    async function processB() {
-       await lockA.acquire();
-       await lockB.acquire();  // 死鎖！
+     await lockA.acquire();
+     await lockB.acquire(); // 死鎖！
    }
    ```
 
 3. **循環依賴**
 
    ```typescript
+   // moduleC.ts
+   import { funcA } from './moduleA';
+
    // 模組互相引用形成 cycle
    // moduleA.ts
    import { funcB } from './moduleB';
-   export const funcA = () => funcB();
 
    // moduleB.ts
    import { funcC } from './moduleC';
+   export const funcA = () => funcB();
    export const funcB = () => funcC();
-
-   // moduleC.ts
-   import { funcA } from './moduleA';
-   export const funcC = () => funcA();  // 循環依賴！
+   export const funcC = () => funcA(); // 循環依賴！
    ```
 
 ## 範例
@@ -133,7 +128,7 @@ Output: false
       🐰       🐢         |        |
        |        |        |        |
        +--------+--------+--------+
-     
+
      # 第一步移動
      +---+    +---+    +---+    +---+
      | 3 | -> | 2 | -> | 0 | -> |-4 |
@@ -141,7 +136,7 @@ Output: false
               🐰                  🐢
        |        |        |        |
        +--------+--------+--------+
-     
+
      # 第二步移動
      +---+    +---+    +---+    +---+
      | 3 | -> | 2 | -> | 0 | -> |-4 |
@@ -149,7 +144,7 @@ Output: false
                        🐰         🐢
        |        |        |        |
        +--------+--------+--------+
-     
+
      # 相遇！（在環中）
      +---+    +---+    +---+    +---+
      | 3 | -> | 2 | -> | 0 | -> |-4 |
@@ -162,39 +157,39 @@ Output: false
 ## 程式碼實作
 
 ```typescript
-const hasCycle = (head: ListNode | null): boolean => {
-    // 處理空串列或單節點的情況
-    if (!head?.next) {
-        return false;
+function hasCycle(head: ListNode | null): boolean {
+  // 處理空串列或單節點的情況
+  if (!head?.next) {
+    return false;
+  }
+
+  // 建立兩個跑者
+  const runners = {
+    turtle: head, // 烏龜從起點開始
+    rabbit: head // 兔子也從起點開始
+  };
+
+  // 使用遞迴取代 while 迴圈
+  const race = ({ turtle, rabbit }: typeof runners): boolean => {
+    // 兔子撞到終點，表示不是環形跑道
+    if (!rabbit?.next) {
+      return false;
     }
 
-    // 建立兩個跑者
-    const runners = {
-        turtle: head,        // 烏龜從起點開始
-        rabbit: head         // 兔子也從起點開始
-    };
+    // 兔子追上烏龜了！表示有環
+    if (rabbit === turtle) {
+      return true;
+    }
 
-    // 使用遞迴取代 while 迴圈
-    const race = ({ turtle, rabbit }: typeof runners): boolean => {
-        // 兔子撞到終點，表示不是環形跑道
-        if (!rabbit?.next) {
-            return false;
-        }
+    // 繼續跑：烏龜跑 1 步，兔子跑 2 步
+    return race({
+      turtle: turtle.next!,
+      rabbit: rabbit.next.next
+    });
+  };
 
-        // 兔子追上烏龜了！表示有環
-        if (rabbit === turtle) {
-            return true;
-        }
-
-        // 繼續跑：烏龜跑 1 步，兔子跑 2 步
-        return race({
-            turtle: turtle.next!,
-            rabbit: rabbit.next.next
-        });
-    };
-
-    return race(runners);
-};
+  return race(runners);
+}
 ```
 
 ## 技術重點
