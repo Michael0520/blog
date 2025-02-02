@@ -1,7 +1,6 @@
 ---
 title: Easy 01 - Two Sums
 description: In this blog I will share a solution to the two sums problem.
-icon: lucide:code
 gitTalk: false
 date: 2025-01-11
 read: '5'
