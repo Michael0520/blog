@@ -51,7 +51,7 @@ export default defineNuxtConfig({
       title: 'Michael\'s Blog',
       viewport: 'width=device-width, initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         {
           rel: 'prefetch',
           // href: 'https://www.youtube.com/iframe_api',
