@@ -54,7 +54,7 @@ function getTopicFromPath(path: string | undefined): string {
 </script>
 
 <template>
-  <section class="relative mt-10 flex flex-col lg:grid lg:grid-cols-4 lg:gap-8">
+  <section class="relative mt-10 flex flex-col p-6 lg:grid lg:grid-cols-4 lg:gap-8">
     <AuroraBackground>
       <Motion
         as="div"
@@ -71,7 +71,7 @@ function getTopicFromPath(path: string | undefined): string {
         }"
         class="relative flex flex-col items-center justify-center gap-4 rounded-xl  px-4"
       >
-        <div class="text-center text-4xl font-medium dark:text-white">
+        <div class="text-center text-2xl font-medium dark:text-white lg:text-4xl">
           Latest Blog Posts
         </div>
       </Motion>
