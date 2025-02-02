@@ -37,7 +37,7 @@ export default defineAppConfig({
       ],
       links: [{
         icon: 'lucide:github',
-        to: 'https://github.com/michael860520',
+        to: 'https://github.com/michael0520',
         target: '_blank',
       }],
     },
@@ -79,12 +79,12 @@ export default defineAppConfig({
       links: [{
         title: 'Star on GitHub',
         icon: 'lucide:star',
-        to: 'https://github.com/michael860520/blog',
+        to: 'https://github.com/michael0520/blog',
         target: '_blank',
       }, {
         title: 'Create Issues',
         icon: 'lucide:circle-dot',
-        to: 'https://github.com/michael860520/blog/issues',
+        to: 'https://github.com/michael0520/blog/issues',
         target: '_blank',
       }],
     },
