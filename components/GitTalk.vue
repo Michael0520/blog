@@ -1,21 +1,19 @@
-<template>
-  <div id="gitalk-container" />
-</template>
-
 <script setup lang="ts">
 import * as Gitalk from 'gitalk';
 import { onMounted } from 'vue';
 import 'gitalk/dist/gitalk.css';
 
+const config = useRuntimeConfig();
+
 onMounted(() => {
   const commentConfig = {
     enable: true,
-    clientID: 'deceb2d7071942b4ff48',
-    clientSecret: 'b928a71e4e41bc0991623142505926522a68d8d8',
+    clientID: config.public.GITHUB_CLIENT_ID,
+    clientSecret: config.public.GITHUB_CLIENT_SECRET,
     repo: 'blog',
-    owner: 'eepson123tw',
-    admin: ['eepson123tw'],
-    githubID: 'eepson123tw',
+    owner: 'michael860520',
+    admin: ['michael860520'],
+    githubID: 'michael860520',
     id: decodeURI(window.location.pathname),
     language: 'zh-TW',
     proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
@@ -27,6 +25,10 @@ onMounted(() => {
   gitalk.render('gitalk-container');
 });
 </script>
+
+<template>
+  <div id="gitalk-container" />
+</template>
 
 <style scoped>
 #gitalk-container {

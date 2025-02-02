@@ -130,10 +130,10 @@ export default defineNuxtConfig({
     name: 'Michael\'s Blog',
   },
   runtimeConfig: {
-    // public: {
-    //   posthogPublicKey: 'phc_fzR4XnxYjp4sB38xz1F8L1halakmuZtr1sIRkIaCpNG',
-    //   posthogHost: 'https://us.i.posthog.com',
-    // },
+    public: {
+      GITHUB_CLIENT_ID: '',
+      GITHUB_CLIENT_SECRET: '',
+    },
     baseURL: 'https://www.michaello.me',
   },
   nitro: {

@@ -109,10 +109,6 @@ function _hash(key) {
 }
 ```
 
-:::tip
-如何實現一個數據結構 [hash table](https://codepen.io/eepson123tw/pen/dywGdRg)
-:::
-
 ### 常見的 HASH 函式
 
 - MD5（Message Digest Algorithm 5）:
