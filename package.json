@@ -30,7 +30,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "config": {
     "commitizen": {
@@ -67,11 +69,13 @@
     "@commitlint/format": "^19.5.0",
     "@inspira-ui/plugins": "^0.0.1",
     "@types/rss": "^0.0.32",
+    "@vitest/ui": "^3.0.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "conventional-changelog-atom": "^5.0.0",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vitest": "^3.0.4"
   },
   "pnpm": {
     "neverBuiltDependencies": [
