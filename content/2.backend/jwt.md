@@ -5,14 +5,7 @@ icon: 'lucide:table-of-contents'
 gitTalk: false
 date: 2023-03-25 11:14:47
 read: '10'
-authors:
-  - name: Aaron Shih
-    username: eepson123tw
-    avatar: https://www.github.com/eepson123tw.png
-    to: https://github.com/eepson123tw
-    target: _blank
 ---
-
 
 > 什麼是JWT?
 
@@ -82,7 +75,6 @@ HMACSHA256(
   secret)
 
 => eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9(hearder).eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsbGVuIiwiaWQiOjI3ODUwNjN9(payload).NVSX8vVwjcw3oXbOsZv7hp9AzdAAU3gQR8htriPD9sQ(secret)
-
 
 ```
 

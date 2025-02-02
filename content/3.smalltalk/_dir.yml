@@ -1,6 +1,7 @@
-title: Smalltalk 開發迷霧
+title: Smalltalk
 icon: lucide:smile
-navigation.redirect: /smalltalk/gpt-prompt-learning
+navigation.redirect: /smalltalk/github-copilot
 collapse: false
 sidebar:
   style: tree
+

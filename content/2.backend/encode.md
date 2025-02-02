@@ -5,12 +5,6 @@ icon: 'lucide:lock-keyhole'
 gitTalk: false
 date: 2023-10-11 23:50:24
 read: '5'
-authors:
-  - name: Aaron Shih
-    username: eepson123tw
-    avatar: https://www.github.com/eepson123tw.png
-    to: https://github.com/eepson123tw
-    target: _blank
 ---
 
 > Encode、Decode、Hash

@@ -5,12 +5,6 @@ icon: 'lucide:power-off'
 gitTalk: false
 date: 2022-12-15 21:18:08
 read: '10'
-authors:
-  - name: Aaron Shih
-    username: eepson123tw
-    avatar: https://www.github.com/eepson123tw.png
-    to: https://github.com/eepson123tw
-    target: _blank
 ---
 
 > 知道網頁有哪些效能指標嗎?
