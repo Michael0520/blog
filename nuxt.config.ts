@@ -131,8 +131,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      GITHUB_CLIENT_ID: '',
-      GITHUB_CLIENT_SECRET: '',
+      GITHUB_COMMENT_CLIENT_ID: '',
+      GITHUB_COMMENT_SECRET: '',
     },
     baseURL: 'https://www.michaello.me',
   },

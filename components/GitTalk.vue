@@ -8,8 +8,8 @@ const config = useRuntimeConfig();
 onMounted(() => {
   const commentConfig = {
     enable: true,
-    clientID: config.public.GITHUB_CLIENT_ID,
-    clientSecret: config.public.GITHUB_CLIENT_SECRET,
+    clientID: config.public.GITHUB_COMMENT_CLIENT_ID,
+    clientSecret: config.public.GITHUB_COMMENT_SECRET,
     repo: 'blog',
     owner: 'michael860520',
     admin: ['michael860520'],
