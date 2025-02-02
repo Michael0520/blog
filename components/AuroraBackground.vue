@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { cn } from '@/lib/utils';
+
+interface AuroraBackgroundProps {
+  radialGradient?: boolean;
+  class?: string;
+}
+
+const props = withDefaults(defineProps<AuroraBackgroundProps>(), {
+  radialGradient: true,
+});
+</script>
+
 <template>
   <main>
     <div
@@ -8,6 +21,7 @@
           props.class,
         )
       "
+      class="mb-6 p-6 lg:mb-0 lg:p-0"
     >
       <div class="absolute inset-0 overflow-hidden rounded-xl">
         <div
@@ -30,19 +44,6 @@
     </div>
   </main>
 </template>
-
-<script setup lang="ts">
-import { cn } from '@/lib/utils';
-
-interface AuroraBackgroundProps {
-  radialGradient?: boolean;
-  class?: string;
-}
-
-const props = withDefaults(defineProps<AuroraBackgroundProps>(), {
-  radialGradient: true,
-});
-</script>
 
 <style scoped>
 .aurora-background-gradient-after {
