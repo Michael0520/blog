@@ -74,7 +74,7 @@ export default defineAppConfig({
       }],
     },
     toc: {
-      enable: true,
+      enable: false,
       title: 'On This Page',
       links: [{
         title: 'Star on GitHub',
@@ -94,7 +94,7 @@ export default defineAppConfig({
       style: 'input' as 'input' | 'button',
     },
     gitTalk: {
-      enable: true,
+      enable: false,
     },
   },
 });
