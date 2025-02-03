@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@antfu/eslint-config':
-        specifier: ^4.1.0
+        specifier: ^4.1.1
         version: 4.1.1(@typescript-eslint/utils@8.23.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3))(@vue/compiler-sfc@3.5.13)(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)(vitest@3.0.5)
       '@nuxt/image':
         specifier: ^1.9.0
@@ -21,7 +21,7 @@ importers:
         specifier: 5.2.2
         version: 5.2.2(magicast@0.3.5)(rollup@4.34.1)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
       '@nuxtjs/sitemap':
-        specifier: ^7.2.3
+        specifier: ^7.2.4
         version: 7.2.4(h3@1.14.0)(magicast@0.3.5)(rollup@4.34.1)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
       '@vueuse/core':
         specifier: ^12.5.0
@@ -39,22 +39,22 @@ importers:
         specifier: ^1.8.0
         version: 1.8.0
       motion-v:
-        specifier: ^0.8.1
-        version: 0.8.1(vue@3.5.13(typescript@5.7.3))
+        specifier: ^0.9.0
+        version: 0.9.0(vue@3.5.13(typescript@5.7.3))
       nuxt:
-        specifier: ^3.15.2
+        specifier: ^3.15.4
         version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.0)(db0@0.2.3)(eslint@9.19.0(jiti@2.4.2))(ioredis@5.4.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.1)(terser@5.37.0)(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(xml2js@0.6.2)(yaml@2.7.0)
       nuxt-og-image:
         specifier: ^4.1.2
         version: 4.1.2(magicast@0.3.5)(rollup@4.34.1)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
       posthog-js:
-        specifier: ^1.210.2
+        specifier: ^1.215.1
         version: 1.215.1
       rss:
         specifier: ^1.2.2
         version: 1.2.2
       shadcn-docs-nuxt:
-        specifier: ^0.8.11
+        specifier: ^0.8.13
         version: 0.8.13(@parcel/watcher@2.5.1)(@types/node@22.13.0)(db0@0.2.3)(eslint@9.19.0(jiti@2.4.2))(ioredis@5.4.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.1)(tailwindcss@3.4.17)(terser@5.37.0)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(xml2js@0.6.2)(yaml@2.7.0)
       simplex-noise:
         specifier: ^4.0.3
@@ -73,10 +73,10 @@ importers:
         version: 0.6.2
     devDependencies:
       '@commitlint/cli':
-        specifier: ^19.6.1
+        specifier: ^19.7.1
         version: 19.7.1(@types/node@22.13.0)(typescript@5.7.3)
       '@commitlint/config-conventional':
-        specifier: ^19.6.0
+        specifier: ^19.7.1
         version: 19.7.1
       '@commitlint/cz-commitlint':
         specifier: ^19.6.1
@@ -91,7 +91,7 @@ importers:
         specifier: ^0.0.32
         version: 0.0.32
       '@vitest/ui':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: 3.0.5(vitest@3.0.5)
       class-variance-authority:
         specifier: ^0.7.1
@@ -109,7 +109,7 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
       vitest:
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: 3.0.5(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/ui@3.0.5)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0)
 
 packages:
@@ -4264,8 +4264,8 @@ packages:
   motion-utils@11.18.1:
     resolution: {integrity: sha512-49Kt+HKjtbJKLtgO/LKj9Ld+6vw9BjH5d9sc40R/kVyH8GLAXgT42M2NnuPcJNuA3s9ZfZBUcwIgpmZWGEE+hA==}
 
-  motion-v@0.8.1:
-    resolution: {integrity: sha512-jgGnPD8Ra1OnmgjPN7DQzn0WtwSw7DQcYLSAGrZ2MtHex2EFydA1ZXlvC52oPvjvVT5F1Pws6u+EjbIZoYY3Zg==}
+  motion-v@0.9.0:
+    resolution: {integrity: sha512-Qi2G4bFTmt0MVI6xDVcuThfyDB/KejoXJ+/+lKx0hnEwi9nI9cg1aClo6j0djGDcAWvybUFUN3kEoWQw/lBh1A==}
     peerDependencies:
       vue: '>=3.0.0'
 
@@ -11579,7 +11579,7 @@ snapshots:
 
   motion-utils@11.18.1: {}
 
-  motion-v@0.8.1(vue@3.5.13(typescript@5.7.3)):
+  motion-v@0.9.0(vue@3.5.13(typescript@5.7.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.13(typescript@5.7.3))
       framer-motion: 11.16.6
