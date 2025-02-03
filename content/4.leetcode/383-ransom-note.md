@@ -1,7 +1,7 @@
 ---
 title: 'LeetCode 383 - Ransom Note'
 description: 'In this blog I will share a solution to the Ransom Note problem.'
-date: 2024-02-04 12:00:00
+date: 2025-02-04 12:00:00
 read: '10'
 ---
 
