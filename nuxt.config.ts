@@ -156,7 +156,13 @@ export default defineNuxtConfig({
         '**/.git/**',
       ],
     },
-
+    routeRules: {
+      '/**': {
+        headers: {
+          'cache-control': 'public,max-age=3600,must-revalidate', // cache 1 hour
+        },
+      },
+    },
     hooks: {
       'prerender:generate': async (route, nitro) => {
         // eslint-disable-next-line node/prefer-global/process
