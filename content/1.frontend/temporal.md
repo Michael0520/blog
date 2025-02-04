@@ -199,4 +199,5 @@ export default DateTimeDisplay;
 Temporal 提供了一個現代化、強大且易於使用的日期和時間處理方案，解決了現有 `Date` API 和其他第三方庫的一些核心問題，可以再包裝成 React Hook 來使用，來提升可讀性和可維護性
 
 隨著 Temporal 成為 JavaScript 標準的一部分，學會它將有助於在未來的開發中更高效地處理日期和時間相關的需求，並且僅僅用著少量的程式碼
-[1] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal
+
+:read-more{title="MDN Temporal" to="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal"}
