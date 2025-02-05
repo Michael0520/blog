@@ -1,5 +1,56 @@
+<script setup lang="ts">
+import { Analytics } from '@vercel/analytics/nuxt';
+
+const { page } = useContent();
+const config = useConfig();
+
+function handleError(error: any) {
+  console.error('Page Error:', error);
+
+  // Handle specific error cases
+  if (error.statusCode === 404) {
+    showError({ statusCode: 404, message: 'Content not found' });
+  } else if (error.statusCode === 500) {
+    showError({ statusCode: 500, message: 'Server error occurred' });
+  }
+}
+
+function handleErrorClear(error: any) {
+  // You might want to refresh the content or perform specific actions
+  if (error.statusCode === 500) {
+    // Reload the page for server errors
+    window.location.reload();
+  } else {
+    // For other errors, just clear the error
+    clearError({ redirect: '/' });
+  }
+}
+
+// Your existing meta tags setup
+useSeoMeta({
+  title: `${page.value?.title ?? '404'} - ${config.value.site.name}`,
+  ogTitle: page.value?.title,
+  description: page.value?.description,
+  ogDescription: page.value?.description,
+  twitterCard: 'summary_large_image',
+  articleModifiedTime: page.value?.date,
+});
+
+useHead({
+  meta: [{ property: 'article:modified_time', content: `${page.value?.date}` }],
+});
+
+defineOgImageComponent('BlogPost', {
+  title: page.value?.title,
+  description: page.value?.description,
+  colorMode: 'light',
+});
+</script>
+
 <template>
   <div>
+    <Analytics />
+
     <NuxtErrorBoundary @error="handleError">
       <!-- Main content -->
       <div
@@ -53,51 +104,3 @@
     </NuxtErrorBoundary>
   </div>
 </template>
-
-<script setup lang="ts">
-const { page } = useContent();
-const config = useConfig();
-
-function handleError(error: any) {
-  console.error('Page Error:', error);
-
-  // Handle specific error cases
-  if (error.statusCode === 404) {
-    showError({ statusCode: 404, message: 'Content not found' });
-  } else if (error.statusCode === 500) {
-    showError({ statusCode: 500, message: 'Server error occurred' });
-  }
-}
-
-function handleErrorClear(error: any) {
-  // You might want to refresh the content or perform specific actions
-  if (error.statusCode === 500) {
-    // Reload the page for server errors
-    window.location.reload();
-  } else {
-    // For other errors, just clear the error
-    clearError({ redirect: '/' });
-  }
-}
-
-// Your existing meta tags setup
-useSeoMeta({
-  title: `${page.value?.title ?? '404'} - ${config.value.site.name}`,
-  ogTitle: page.value?.title,
-  description: page.value?.description,
-  ogDescription: page.value?.description,
-  ogImage: config.value.site.ogImage,
-  twitterCard: 'summary_large_image',
-  articleModifiedTime: page.value?.date,
-});
-
-useHead({
-  meta: [{ property: 'article:modified_time', content: `${page.value?.date}` }],
-});
-
-defineOgImageComponent('BlogPost', {
-  title: page.value?.title,
-  description: page.value?.description,
-  colorMode: 'light',
-});
-</script>
