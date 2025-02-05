@@ -74,19 +74,19 @@ export default defineAppConfig({
       }],
     },
     toc: {
-      enable: false,
+      enable: true,
       title: 'On This Page',
-      links: [{
-        title: 'Star on GitHub',
-        icon: 'lucide:star',
-        to: 'https://github.com/michael0520/blog',
-        target: '_blank',
-      }, {
-        title: 'Create Issues',
-        icon: 'lucide:circle-dot',
-        to: 'https://github.com/michael0520/blog/issues',
-        target: '_blank',
-      }],
+      // links: [{
+      //   title: 'Star on GitHub',
+      //   icon: 'lucide:star',
+      //   to: 'https://github.com/michael0520/blog',
+      //   target: '_blank',
+      // }, {
+      //   title: 'Create Issues',
+      //   icon: 'lucide:circle-dot',
+      //   to: 'https://github.com/michael0520/blog/issues',
+      //   target: '_blank',
+      // }],
     },
     search: {
       enable: true,

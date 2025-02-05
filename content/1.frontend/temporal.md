@@ -1,25 +1,35 @@
 ---
-title: 原生時間日期處理庫 - Temporal
+title: JavaScript 原生時間日期處理庫 - Temporal
 description: 介紹 Temporal 的時間日期處理
-date: 2025-02-02
+date: 2025-02-06
 icon: 'fa6-solid:toolbox'
+read: '15'
 ---
+
+![temporal](https://developer.mozilla.org/en-US/blog/javascript-temporal-is-coming/featured.png)
 
 ## Introduction
 
-**Temporal** 是 JavaScript 中即將推出的原生日期和時間處理 API，旨在解決現有 `Date` API 的多項不足。它提供了更強大、更精確且更易於使用的功能，使開發者能夠更有效地處理日期和時間相關的操作。
+**Temporal** 是 JavaScript 中即將推出的原生日期和時間處理 API（目前處於 Stage 3 提案階段），主要要解決現有 `Date` API 的多項不足，它提供了更強大、更精確且更易於使用的功能，使開發者能夠更有效地處理日期和時間相關的操作。
 
 **主要特點包括：**
-- **不可變性**：Temporal 的所有對象都是不可變的，這有助於防止意外的數據修改。
-- **高精度**：支持納秒級別的時間精度，超越了 `Date` 的毫秒級別。
-- **時區支持**：內建強大的時區處理能力，簡化跨時區操作。
-- **豐富的功能**：支持更複雜的日期和時間運算，如日曆計算、重複事件等。
 
-**安裝（僅適用於支持的環境）**：
+- **不可變性**：所有操作都會返回新物件，防止意外的資料修改
+- **高精度**：支援奈秒級別的時間精度，超越了 `Date` 的毫秒級別
+- **時區支援**：內建強大的時區處理能力，支援所有 IANA 時區
+- **豐富的功能**：支援更複雜的日期和時間運算，如日曆計算、重複事件等
+- **嚴格的字串格式**：提供統一的解析和格式化標準
+- **支援非公曆系統**：內建多日曆系統支援
+
+**安裝（僅適用於支援的環境）**：
+
 ```bash
 npm install @js-temporal/polyfill
 ```
-> 注意：Temporal 尚未被所有瀏覽器和 Node.js 版本原生支持，因此在使用前建議引入 polyfill。
+
+::alert{type="warning" icon="lucide:triangle-alert"}
+  Temporal 尚未被所有瀏覽器和 Node.js 版本原生支援，目前仍處於實驗階段，建議在使用前引入 polyfill
+::
 
 ## 與熱門的 dayjs & moment 的差異
 
@@ -27,78 +37,97 @@ npm install @js-temporal/polyfill
 
 | 特性            | Temporal                            | dayjs & moment                     |
 |-----------------|-------------------------------------|------------------------------------|
-| **原生支持**    | 是（即將成為標準的一部分）              | 否，需要額外安裝庫                    |
-| **不可變性**    | 所有對象不可變，防止副作用               | `moment` 對象可變，`dayjs` 不可變   |
-| **時間精度**    | 支持納秒級別                           | 毫秒級別                             |
-| **時區處理**    | 原生支持 IANA 時區，操作更簡便            | 需要額外插件或手動處理時區           |
-| **性能**        | 更優化的性能表現                         | `moment` 有性能瓶頸，`dayjs` 輕量化 |
+| **原生支援**    | 是（即將成為標準的一部分）              | 否，需要額外安裝庫                    |
+| **不可變性**    | 所有物件不可變，防止副作用               | `moment` 物件可變，`dayjs` 不可變   |
+| **時間精度**    | 支援奈秒級別                           | 毫秒級別                             |
+| **時區處理**    | 原生支援 IANA 時區，操作更簡便            | 需要額外外掛或手動處理時區           |
+| **效能**        | 更優化的效能表現                         | `moment` 有效能瓶頸，`dayjs` 輕量化 |
 | **API 設計**     | 現代化、清晰且一致的 API 設計             | `moment` API 複雜，`dayjs` 簡潔但功能有限 |
+| **型別支援**    | 完整的 TypeScript 支援                   | 需要額外的型別定義                    |
 
-**總結：**
-- **Temporal** 提供了更現代化和強大的日期時間處理解決方案，易於學習和使用，並解決了現有庫的一些核心問題。
-- **dayjs** 作為輕量級替代品，適合需要簡單功能且注重性能的場景。
-- **moment** 雖然功能豐富，但因其體積和性能問題，逐漸被其他庫取代。
+## 核心概念
+
+Temporal 提供了多個專門的類別來處理不同的時間日期場景，每個類別都有其特定的用途和優勢：
+
+::field-group
+  ::field{name="Temporal.Now.instant()" type="Temporal.Instant"}
+  返回當前時間的 Instant 物件，用於精確時間點的表示
+  ::
+  ::field{name="Temporal.Now.zonedDateTimeISO()" type="Temporal.ZonedDateTime"}
+  返回當前時間的 ZonedDateTime 物件，適合處理帶時區的日期時間
+  ::
+  ::field{name="Temporal.Now.plainDateISO()" type="Temporal.PlainDate"}
+  返回當前日期的 PlainDate 物件
+  ::
+  ::field{name="Temporal.Now.plainTimeISO()" type="Temporal.PlainTime"}
+  返回當前時間的 PlainTime 物件
+  ::
+  ::field{name="Temporal.PlainDateTime.from()" type="Temporal.PlainDateTime"}
+  返回包含日期和時間的 PlainDateTime 物件
+  ::
+  ::field{name="Temporal.PlainYearMonth.from()" type="Temporal.PlainYearMonth"}
+  返回包含年月的 PlainYearMonth 物件
+  ::
+  ::field{name="Temporal.PlainMonthDay.from()" type="Temporal.PlainMonthDay"}
+  返回包含月日的 PlainMonthDay 物件
+  ::
+  ::field{name="Temporal.Duration.from()" type="Temporal.Duration"}
+  返回表示時間長度的 Duration 物件
+  ::
+::
 
 ## 基礎用法
+
+在開始使用 Temporal 之前，我們需要先引入相關依賴，並了解基本的操作方式：
 
 ### 引入 Temporal（使用 polyfill）
 
 ```javascript
-// 在支持的環境中可以直接使用 Temporal，否則需要引入 polyfill
+// 在支援的環境中可以直接使用 Temporal，否則需要引入 polyfill
 import { Temporal } from '@js-temporal/polyfill';
 
-// 或者在全局範圍內引入 polyfill
+// 或者在全域範圍內引入 polyfill
 require('@js-temporal/polyfill');
 ```
 
-### 創建日期和時間對象
+### 建立日期和時間物件
 
 ```javascript
-// 創建當前日期和時間
-const now = Temporal.Now.instant();
-console.log(now.toString()); // 例如：2023-04-16T12:34:56.789123456Z
+// 得到當前時間的不同表示方式
+const instant = Temporal.Now.instant();
+const zonedDateTime = Temporal.Now.zonedDateTimeISO();
+const plainDate = Temporal.Now.plainDateISO();
 
-// 創建具體的日期
-const date = Temporal.PlainDate.from('2023-04-16');
-console.log(date.toString()); // 2023-04-16
+// 建立具體的日期時間
+const date = Temporal.PlainDate.from('2024-02-02');
 
-// 創建具體的日期時間
-const dateTime = Temporal.PlainDateTime.from('2023-04-16T12:34');
-console.log(dateTime.toString()); // 2023-04-16T12:34
+// 建立帶時區的日期時間
+const tokyo = Temporal.ZonedDateTime.from({
+  timeZone: 'Asia/Tokyo',
+  year: 2024,
+  month: 2,
+  day: 2,
+  hour: 12
+});
 ```
 
 ### 時間運算
 
 ```javascript
-// 加上 1 天
+// 日期運算
 const tomorrow = date.add({ days: 1 });
-console.log(tomorrow.toString()); // 2023-04-17
+const nextWeek = date.add({ weeks: 1 });
+const lastMonth = date.subtract({ months: 1 });
 
-// 減去 2 小時
-const earlier = dateTime.subtract({ hours: 2 });
-console.log(earlier.toString()); // 2023-04-16T10:34
-```
+// 時區轉換
+const taipeiTime = tokyo.withTimeZone('Asia/Taipei');
 
-### 比較日期
-
-```javascript
-if (date.equals(tomorrow.subtract({ days: 1 }))) {
-  console.log('日期相等');
-} else {
-  console.log('日期不相等');
-}
-```
-
-### 處理時區
-
-```javascript
-// 創建帶有時區的日期時間
-const zonedDateTime = Temporal.ZonedDateTime.from('2023-04-16T12:34:56+09:00[Asia/Tokyo]');
-console.log(zonedDateTime.toString()); // 2023-04-16T12:34:56+09:00[Asia/Tokyo]
-
-// 轉換時區
-const utcDateTime = zonedDateTime.toZonedDateTimeISO('UTC');
-console.log(utcDateTime.toString()); // 2023-04-16T03:34:56Z[UTC]
+// 計算時間差
+const start = Temporal.PlainDate.from('2024-02-01');
+const end = Temporal.PlainDate.from('2024-03-01');
+const diff = end.since(start);
+console.log(diff.days); // 直接獲得天數
+console.log(diff.hours); // 直接獲得小時數
 ```
 
 ## 使用 Hook 包裝 Temporal + TypeScript 加強可讀性
@@ -114,90 +143,124 @@ npm install @js-temporal/polyfill
 npm install --save-dev typescript
 ```
 
-### 創建 Temporal Hook
+### 建立倒數計時 Hook
 
 ```typescript
-import { Temporal } from '@js-temporal/polyfill';
-// hooks/useTemporal.ts
-import { useEffect, useState } from 'react';
+// hooks/useCountdown.ts
 
-interface TemporalState {
-  now: Temporal.Instant;
-  zonedDateTime: Temporal.ZonedDateTime;
-}
-
-function useTemporal(timeZone: string = 'UTC'): TemporalState {
-  const [state, setState] = useState<TemporalState>({
-    now: Temporal.Now.instant(),
-    zonedDateTime: Temporal.Now.zonedDateTimeISO(timeZone),
+// 舊方式 (使用 Date)
+function useTraditionalCountdown(targetDate: Date) {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setState({
-        now: Temporal.Now.instant(),
-        zonedDateTime: Temporal.Now.zonedDateTimeISO(timeZone),
-      });
-    }, 1000); // 每秒更新一次
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate.getTime() - now;
 
-    return () => clearInterval(interval);
-  }, [timeZone]);
+      // 複雜的時間換算
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-  return state;
+      if (difference < 0) {
+        clearInterval(timer);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return timeLeft;
 }
 
-export default useTemporal;
+// 使用 Temporal 的新方式
+function useTemporalCountdown(targetDate: string) {
+  const [duration, setDuration] = useState<Temporal.Duration>(
+    Temporal.Duration.from({ seconds: 0 })
+  );
+
+  useEffect(() => {
+    const target = Temporal.PlainDateTime.from(targetDate);
+
+    const timer = setInterval(() => {
+      const now = Temporal.Now.plainDateTimeISO();
+      const diff = target.since(now);
+
+      if (diff.sign === -1) {
+        clearInterval(timer);
+        setDuration(Temporal.Duration.from({ seconds: 0 }));
+        return;
+      }
+
+      setDuration(diff);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return {
+    days: duration.days,
+    hours: duration.hours,
+    minutes: duration.minutes,
+    seconds: duration.seconds
+  };
+}
 ```
 
-### 在組件中使用 Hook
+### 在元件中使用倒數計時 Hook
 
 ```tsx
-// components/DateTimeDisplay.tsx
-import React from 'react';
-import useTemporal from '../hooks/useTemporal';
-
-const DateTimeDisplay: React.FC = () => {
-  const { now, zonedDateTime } = useTemporal('Asia/Taipei');
+// components/CountdownDisplay.tsx
+const CountdownDisplay: React.FC = () => {
+  // 設定目標時間為 2024 年底
+  const { days, hours, minutes, seconds } = useTemporalCountdown('2024-12-31T23:59:59');
 
   return (
-    <div>
-      <p>
-        現在時間 (Instant):
-        {now.toString()}
-      </p>
-      <p>
-        當地時間 (ZonedDateTime):
-        {zonedDateTime.toString()}
-      </p>
+    <div className="text-center">
+      <h2 className="text-2xl font-bold">距離 2024 年結束還有：</h2>
+      <div className="mt-4 flex justify-center gap-4">
+        <div>
+          <span className="text-3xl">{days}</span>
+          <p>天</p>
+        </div>
+        <div>
+          <span className="text-3xl">{hours}</span>
+          <p>時</p>
+        </div>
+        <div>
+          <span className="text-3xl">{minutes}</span>
+          <p>分</p>
+        </div>
+        <div>
+          <span className="text-3xl">{seconds}</span>
+          <p>秒</p>
+        </div>
+      </div>
     </div>
   );
 };
-
-export default DateTimeDisplay;
 ```
 
 ### 說明
 
-1. **Hook 的創建 (`useTemporal`)**：
-    - **參數**：可選的時區字符串，預設為 `'UTC'`。
-    - **狀態**：包含當前的 `Temporal.Instant` 和 `Temporal.ZonedDateTime`。
-    - **效果**：使用 `setInterval` 每秒更新一次狀態，確保時間實時刷新。
-    - **回傳值**：返回當前的 `now` 和 `zonedDateTime` 對象。
-
-2. **組件的使用 (`DateTimeDisplay`)**：
-    - 調用 `useTemporal` 並傳入所需的時區，例如 `'Asia/Taipei'`。
-    - 顯示當前的 `Instant` 和具體時區的 `ZonedDateTime`。
-
-### 增強可讀性與可維護性
-
-- **TypeScript** 提供了類型檢查，確保 Temporal 對象的正確使用，減少錯誤。
-- **自定義 Hook** 封裝了 Temporal 的邏輯，使組件更加專注於 UI 展示。
-- **時區參數化** 使 Hook 更加靈活，可在不同場景下重用。
+1. **Hook (`useCountdown`)**：
+    - **參數**：目標時間的 ISO 格式字串，可以根據團隊喜好去客製化期望的格式
+    - **狀態**：包含倒數計時的 `Temporal.Duration`
+    - **效果**：使用 `setInterval` 每秒更新一次狀態，確保倒數計時實時刷新
+    - **回傳值**：返回當前的倒數計時狀態
 
 ## 總結
 
-Temporal 提供了一個現代化、強大且易於使用的日期和時間處理方案，解決了現有 `Date` API 和其他第三方庫的一些核心問題，可以再包裝成 React Hook 來使用，來提升可讀性和可維護性
+Temporal 作為下一代的日期時間處理標準，提供了更直覺的 API 設計、更安全的不可變特性、更完整的時區支援、更精確的時間處理和更好的型別支援，雖然目前仍處於提案階段，但其設計和功能都非常完善，值得開始學習和嘗試使用，隨著它逐漸成為 JavaScript 標準的一部分，掌握 Temporal 將有助於在未來的開發中更高效地處理日期和時間相關的需求。
 
-隨著 Temporal 成為 JavaScript 標準的一部分，學會它將有助於在未來的開發中更高效地處理日期和時間相關的需求，並且僅僅用著少量的程式碼
-
-:read-more{title="MDN Temporal" to="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal"}
+:read-more{title="Temporal 官方文件" to="https://tc39.es/proposal-temporal/docs/"}
