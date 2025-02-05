@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "buildCommand": "nuxt generate",
+  "outputDirectory": ".output/public",
+  "github": {
+    "silent": true
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

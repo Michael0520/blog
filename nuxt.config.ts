@@ -139,14 +139,13 @@ export default defineNuxtConfig({
     baseURL: 'https://www.michaello.me',
   },
   nitro: {
-    // preset: 'node-server',
+    preset: 'vercel',
     compressPublicAssets: {
       gzip: true,
       brotli: true,
     },
     prerender: {
-      crawlLinks: false,
-      failOnError: false,
+      crawlLinks: true,
       routes: ['/sitemap.xml'],
     },
     watchOptions: {
@@ -157,40 +156,40 @@ export default defineNuxtConfig({
       ],
     },
     routeRules: {
-      '/**': {
-        headers: {
-          'cache-control': 'public,max-age=3600,must-revalidate', // cache 1 hour
-        },
-      },
+      // '/**': {
+      //   headers: {
+      //     'cache-control': 'public,max-age=3600,must-revalidate', // cache 1 hour
+      //   },
+      // },
     },
-    hooks: {
-      'prerender:generate': async (route, nitro) => {
-        // eslint-disable-next-line node/prefer-global/process
-        if (process.env.CI || process.env.SKIP_RSS === 'true') {
-          console.log('Skipping RSS generation in build.');
-          return;
-        }
-        try {
-          const response = await fetch('https://www.michaello.me/sitemap.xml', {
-            signal: AbortSignal.timeout(10_000),
-          });
+    // hooks: {
+    //   'prerender:generate': async (route, nitro) => {
+    //     // eslint-disable-next-line node/prefer-global/process
+    //     if (process.env.CI || process.env.SKIP_RSS === 'true') {
+    //       console.log('Skipping RSS generation in build.');
+    //       return;
+    //     }
+    //     try {
+    //       const response = await fetch('https://www.michaello.me/sitemap.xml', {
+    //         signal: AbortSignal.timeout(10_000),
+    //       });
 
-          if (!response.ok)
-            throw new Error(`Error fetching sitemap: ${response.status} ${response.statusText}`);
+    //       if (!response.ok)
+    //         throw new Error(`Error fetching sitemap: ${response.status} ${response.statusText}`);
 
-          const xmlText = await response.text();
-          const parsedSitemap = await parseStringPromise(xmlText);
-          const urlEntries = parsedSitemap?.urlset?.url || [];
+    //       const xmlText = await response.text();
+    //       const parsedSitemap = await parseStringPromise(xmlText);
+    //       const urlEntries = parsedSitemap?.urlset?.url || [];
 
-          const rssXml = await genFeed(urlEntries);
-          const outputPath = join(nitro.options.output.publicDir, 'rss.xml');
-          writeFileSync(outputPath, rssXml, 'utf-8');
-          console.log(`RSS feed generated at: ${outputPath}`);
-        } catch (error) {
-          console.error('Failed to generate RSS feed', error);
-        }
-      },
-    },
+    //       const rssXml = await genFeed(urlEntries);
+    //       const outputPath = join(nitro.options.output.publicDir, 'rss.xml');
+    //       writeFileSync(outputPath, rssXml, 'utf-8');
+    //       console.log(`RSS feed generated at: ${outputPath}`);
+    //     } catch (error) {
+    //       console.error('Failed to generate RSS feed', error);
+    //     }
+    //   },
+    // },
   },
   vite: {
     build: {
@@ -228,5 +227,5 @@ export default defineNuxtConfig({
   experimental: {
     appManifest: false,
   },
-  compatibilityDate: '2025-02-01',
+  compatibilityDate: '2025-02-06',
 });
