@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDateFormat } from '@vueuse/core';
 import { Motion } from 'motion-v';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 defineOptions({
   name: 'LatestPosts',
@@ -12,32 +12,24 @@ interface Post {
   description: string;
   date: string;
   _path: string;
+  _partial: boolean;
+  _draft: boolean;
+  navigation: boolean;
 }
 
 const latestPosts = ref<Post[]>([]);
 
-async function fetchPosts() {
-  try {
-    const posts = await queryContent()
-      .where({
-        _partial: false,
-        _draft: false,
-        navigation: { $ne: false },
-      })
-      .sort({ date: -1 })
-      .limit(3)
-      .find();
+const posts = await queryContent()
+  .where({
+    _partial: false,
+    _draft: false,
+    navigation: { $ne: false },
+  })
+  .sort({ date: -1 })
+  .limit(3)
+  .find();
 
-    latestPosts.value = (posts as unknown) as Post[];
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-    latestPosts.value = [];
-  }
-}
-
-onMounted(() => {
-  fetchPosts();
-});
+latestPosts.value = posts as unknown as Post[];
 
 function formatDate(date: string) {
   if (!date)
