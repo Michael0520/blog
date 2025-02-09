@@ -39,6 +39,7 @@ read: '10'
   Input: s = "race a car"
   Output: false
   Explanation: "raceacar" 不是回文
+  ```
 
   ::alert{title="限制" type="warning"}
   - 1 <= s.length <= 2 * 10^5
@@ -50,6 +51,7 @@ read: '10'
   :badge[Two Pointers]
   ::
 
+## 解題思路
   這題可以用「雙指針」的方式來解決，步驟如下：
 
   1. **清理字串**
@@ -72,11 +74,6 @@ read: '10'
      "amanaplanacanalpanama"
               (L)    (R)            // 一直比較到指針相遇
      ```
-
-  ### 複雜度分析
-
-  - 時間複雜度：O(n)，需要遍歷整個字串一次
-  - 空間複雜度：O(n)，需要存儲清理後的字串
 
   ## 程式碼
 

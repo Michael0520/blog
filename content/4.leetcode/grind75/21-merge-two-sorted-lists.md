@@ -5,46 +5,59 @@ description: In this blog I will share a solution to the Merge Two Sorted Lists 
 read: '10'
 ---
 
-## Merge Two Sorted Lists
+::div{class="mt-6"}
+   ::card
+   ---
+   icon: lucide:book-open
+   icon-size: 26
+   ---
 
-- link: https://leetcode.com/problems/merge-two-sorted-lists/
-- topic: linked list
-- difficulty: easy
+   #title
+   [題目連結](https://leetcode.com/problems/merge-two-sorted-lists/)
 
-## 題目描述
+   #description
+   難度：Easy
 
-You are given the heads of two sorted linked lists `list1` and `list2`.
+   #content
 
-Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
+   You are given the heads of two sorted linked lists `list1` and `list2`.
 
-Return the head of the merged linked list.
+   Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
 
-Example 1:
+   Return the head of the merged linked list.
 
-```bash
-Input: list1 = [1,2,4], list2 = [1,3,4]
-Output: [1,1,2,3,4,4]
-```
+   Example 1:
 
-Example 2:
+   ```bash
+   Input: list1 = [1,2,4], list2 = [1,3,4]
+   Output: [1,1,2,3,4,4]
+   ```
 
-```bash
-Input: list1 = [], list2 = []
-Output: []
-```
+   Example 2:
 
-Example 3:
+   ```bash
+   Input: list1 = [], list2 = []
+   Output: []
+   ```
 
-```bash
-Input: list1 = [], list2 = [0]
-Output: [0]
-```
+   Example 3:
 
-## 限制條件
+   ```bash
+   Input: list1 = [], list2 = [0]
+   Output: [0]
+   ```
 
-- The number of nodes in both lists is in the range `[0, 50]`
-- `-100 <= Node.val <= 100`
-- Both `list1` and `list2` are sorted in non-decreasing order
+   ::alert{title="限制條件" type="warning"}
+   - The number of nodes in both lists is in the range `[0, 50]`
+   - `-100 <= Node.val <= 100`
+   - Both `list1` and `list2` are sorted in non-decreasing order
+   ::
+
+   #footer
+   :badge[Linked List]
+   :badge[Two Pointers]
+   :badge[Recursion]
+   ::
 
 ## 解題思路
 

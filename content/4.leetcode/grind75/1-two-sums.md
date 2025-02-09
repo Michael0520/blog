@@ -6,42 +6,51 @@ date: 2025-01-11
 read: '5'
 ---
 
-## Two sums
+::div{class="mt-6"}
+   ::card
+   ---
+   icon: lucide:book-open
+   icon-size: 26
+   ---
 
-- link: https://leetcode.com/problems/two-sums/
-- topic: array
-- difficulty: easy
+   #title
+   [題目連結](https://leetcode.com/problems/two-sums/)
 
-## 題目描述
+   #description
+   難度：Easy
 
-Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+   #content
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+   給定一個整數陣列 nums 和一個整數 target，請返回兩個數字，使得它們的和等於 target。
 
-You can return the answer in any order.
+  ::br
+  ::br
+   Example 1:
 
-```markdown
-Example 1:
+   ```bash
+   Input: nums = [2,7,11,15], target = 9
+   Output: [0,1]
+   ```
 
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-Example 2:
+   Example 2:
 
-Input: nums = [3,2,4], target = 6
-Output: [1,2]
-Example 3:｀
+   ```bash
+   Input: nums = [3,2,4], target = 6
+   Output: [1,2]
+   ```
 
-Input: nums = [3,3], target = 6
-Output: [0,1]
-```
+   ::alert{title="限制條件" type="warning"}
+   - 2 <= nums.length <= 104
+   - -109 <= nums[i] <= 109
+   - -109 <= target <= 109
+   - 只有一個有效答案
+   - 不能使用相同的元素兩次
+   ::
 
-### 限制條件（Constraints）：
-
-- 2 <= nums.length <= 104
-- -109 <= nums[i] <= 109
-- -109 <= target <= 109
-- Only one valid answer exists.
+   #footer
+   :badge[Array]
+   :badge[Hash Table]
+   ::
 
 ## 解題思路
 
