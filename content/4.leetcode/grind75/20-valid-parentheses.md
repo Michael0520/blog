@@ -1,10 +1,57 @@
 ---
-title: Easy 20 - Valid Parentheses
+title: Easy 02 - Valid Parentheses
 description: In this blog I will share a solution to the Valid Parentheses problem.
-gitTalk: false
 date: 2025-01-11
 read: '5'
 ---
+
+::div{class="mt-6"}
+  ::card
+  ---
+  icon: lucide:book-open
+  icon-size: 26
+  ---
+
+  #title
+  [題目連結](https://leetcode.com/problems/valid-parentheses/)
+
+  #description
+  難度：Easy
+
+  #content
+  給定一個字串，判斷它是否是有效的括號。
+
+  Example 1:
+
+  ```bash
+  Input: s = "()"
+  Output: true
+  ```
+
+  Example 2:
+
+  ```bash
+  Input: s = "()[]{}"
+  Output: true
+  ```
+
+  Example 3:
+
+  ```bash
+  Input: s = "(]"
+  Output: false
+  ```
+
+  ::alert{title="限制" type="warning"}
+  - 1 <= s.length <= 104
+  - s consists of parentheses only '()[]{}'
+  ::
+
+  #footer
+  :badge[Stack]
+  :badge[String]
+  ::
+::
 
 ## Valid Parentheses
 

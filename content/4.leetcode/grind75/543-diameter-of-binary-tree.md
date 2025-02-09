@@ -2,7 +2,6 @@
 title: Easy 543 - Diameter of Binary Tree
 description: In this blog I will share a solution to the Diameter of Binary Tree problem.
 date: 2025-02-08
-icon: 'fa6-solid:code'
 read: '10'
 ---
 

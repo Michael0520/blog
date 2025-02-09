@@ -2,7 +2,6 @@
 title: Easy 169 - Majority Element
 description: In this blog I will share a solution to the Majority Element problem.
 date: 2025-02-07 01:00:00
-icon: 'fa6-solid:code'
 read: '10'
 ---
 

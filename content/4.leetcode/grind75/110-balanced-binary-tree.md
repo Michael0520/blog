@@ -1,23 +1,49 @@
 ---
 title: Easy 110. Balanced Binary Tree
-date: 2025-01-19 23:00:00
-description: In this blog I will share a solution to the Balanced Binary Tree problem
+description: In this blog I will share a solution to the Balanced Binary Tree problem.
+date: 2025-01-19
+read: '10'
 ---
 
-## 110. Balanced Binary Tree
+::div{class="mt-6"}
+  ::card
+  ---
+  icon: lucide:book-open
+  icon-size: 26
+  ---
 
-## 核心概念
+  #title
+  [題目連結](https://leetcode.com/problems/balanced-binary-tree/)
 
-### 目標
+  #description
+  難度：Easy
 
-判斷一個二元樹是否維持「平衡」狀態。這個問題考驗對樹結構的理解和遞迴的應用。
+  #content
+  判斷一個二元樹是否維持「平衡」狀態。
 
-### 平衡的定義
+  example:
 
-一個二元樹被視為平衡的條件：
+  ```bash
+  Input: root = [3,9,20,null,null,15,7]
+  Output: true
+  ```
 
-- 任意節點的左右子樹高度差 ≤ 1
-- 所有子樹都必須平衡
+  ::alert{title="限制" type="warning"}
+  - 樹中節點數在範圍 [1, 10^4] 內
+  - -100 <= Node.val <= 100
+  ::
+
+  #footer
+  :badge[Tree]
+  :badge[Depth-First Search]
+  :badge[Binary Tree]
+  ::
+
+  ### 平衡的定義
+  一個二元樹被視為平衡的條件：
+
+  - 任意節點的左右子樹高度差 ≤ 1
+  - 所有子樹都必須平衡
 
 ## 問題分析
 
@@ -152,3 +178,10 @@ function isBalanced(root: TreeNode | null): boolean {
 2. **負載均衡**：
    - 服務器負載需要平衡
    - 類似概念的應用
+
+#footer
+:badge[Tree]
+:badge[Depth-First Search]
+:badge[Binary Tree]
+::
+::

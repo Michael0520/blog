@@ -2,7 +2,6 @@
 title: Easy 104 - Maximum Depth of Binary Tree
 description: In this blog I will share a solution to the Maximum Depth of Binary Tree problem.
 date: 2025-02-09 22:00:00
-icon: 'fa6-solid:code'
 read: '10'
 ---
 

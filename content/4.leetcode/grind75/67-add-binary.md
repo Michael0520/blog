@@ -2,7 +2,6 @@
 title: Easy 67 - Add Binary
 description: In this blog I will share a solution to the Add Binary problem.
 date: 2025-02-07 04:00:00
-icon: 'fa6-solid:code'
 read: '10'
 ---
 

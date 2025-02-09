@@ -1,35 +1,45 @@
 ---
 title: Easy 232. Implement Queue using Stacks
-description: In this blog I will share a solution to the Implement Queue using Stacks problem
-date: 2025-01-26 23:00:00
+date: 2025-01-26
+read: '10'
 ---
 
-## Implement Queue using Stacks
+::div{class="mt-6"}
+  ::card
+  ---
+  icon: lucide:book-open
+  icon-size: 26
+  ---
 
-- link: https://leetcode.com/problems/implement-queue-using-stacks/
-- topic: stack, design
-- difficulty: easy
+  #title
+  [題目連結](https://leetcode.com/problems/implement-queue-using-stacks/)
 
-## 題目描述
+  #description
+  難度：Easy
 
-使用兩個堆疊（Stack）來實現先進先出（FIFO）佇列（Queue）。
+  #content
+  使用兩個堆疊（Stack）來實現先進先出（FIFO）佇列（Queue）。
 
-### 範例
+  Example 1:
 
-```bash
-MyQueue queue = new MyQueue();
-queue.push(1);          // queue is: [1]
-queue.push(2);          // queue is: [1, 2]
-queue.peek();           // return 1
-queue.pop();            // return 1, queue is: [2]
-queue.empty();          // return false
-```
+  ```bash
+  MyQueue queue = new MyQueue();
+  queue.push(1);          // queue is: [1]
+  queue.push(2);          // queue is: [1, 2]
+  queue.peek();           // return 1
+  queue.pop();            // return 1, queue is: [2]
+  queue.empty();          // return false
+  ```
 
-### 限制條件
+  ::alert{title="限制" type="warning"}
+  - 最多呼叫 100 次 `push`、`pop`、`peek` 和 `empty`
+  - 所有 `pop` 和 `peek` 的呼叫都是有效的
+  ::
 
-- `1 <= x <= 9`
-- 最多呼叫 100 次 `push`、`pop`、`peek` 和 `empty`
-- 所有 `pop` 和 `peek` 的呼叫都是有效的
+  #footer
+  :badge[Stack]
+  :badge[Design]
+  ::
 
 ## 解題思路
 
@@ -122,3 +132,9 @@ console.log(queue.empty()); // false
 
 2. **程式碼管理**
    - 使用閉包保護內部狀態
+
+#footer
+:badge[Stack]
+:badge[Design]
+::
+::

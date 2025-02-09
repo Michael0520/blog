@@ -2,7 +2,6 @@
 title: Easy 876 - Middle of the Linked List
 description: In this blog I will share a solution to the Middle of the Linked List problem.
 date: 2025-02-09
-icon: 'fa6-solid:code'
 read: '10'
 ---
 
