@@ -38,7 +38,9 @@ read: '10'
   ::
 
   #footer
-  主題：Hash Table, String, Counting
+  :badge[Hash Table]
+  :badge[String]
+  :badge[Counting]
   ::
 ::
 

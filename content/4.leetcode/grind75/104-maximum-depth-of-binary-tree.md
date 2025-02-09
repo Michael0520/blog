@@ -49,7 +49,10 @@ read: '10'
   ::
 
   #footer
-  主題：Tree, Depth-First Search, Breadth-First Search, Binary Tree
+  :badge[Tree]
+  :badge[Depth-First Search]
+  :badge[Breadth-First Search]
+  :badge[Binary Tree]
   ::
 ::
 

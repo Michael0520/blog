@@ -45,7 +45,8 @@ read: '10'
   ::
 
   #footer
-  主題：Dynamic Programming, Fibonacci Sequence
+  :badge[Dynamic Programming]
+  :badge[Fibonacci Sequence]
   ::
 ::
 

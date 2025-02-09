@@ -42,7 +42,10 @@ read: '10'
   ::
 
   #footer
-  主題：Math, String, Bit Manipulation, Simulation
+  :badge[Math]
+  :badge[String]
+  :badge[Bit Manipulation]
+  :badge[Simulation]
   ::
 ::
 

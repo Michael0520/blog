@@ -46,7 +46,9 @@ read: '10'
   ::
 
   #footer
-  主題：Array, Hash Table, Sorting
+  :badge[Array]
+  :badge[Hash Table]
+  :badge[Sorting]
   ::
 ::
 

@@ -41,7 +41,9 @@ read: '10'
   ::
 
   #footer
-  主題：雜湊表, 字串, Greedy
+  :badge[Hash Table]
+  :badge[String]
+  :badge[Greedy]
   ::
 ::
 

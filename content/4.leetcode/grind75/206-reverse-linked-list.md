@@ -39,7 +39,8 @@ read: '10'
   ::
 
   #footer
-  主題：Linked List, Two Pointers
+  :badge[Linked List]
+  :badge[Two Pointers]
   ::
 ::
 
