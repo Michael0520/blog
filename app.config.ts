@@ -49,6 +49,7 @@ export default defineAppConfig({
       breadCrumb: true,
       showTitle: true,
     },
+    backToTop: true,
     banner: {
       enable: true,
       showClose: true,
