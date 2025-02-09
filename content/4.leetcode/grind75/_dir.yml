@@ -1,4 +1,4 @@
 title: Grind75
 icon: lucide:code
 navigation.redirect: /leetcode/grind75/1-two-sums
-collapse: true
+collapse: false
