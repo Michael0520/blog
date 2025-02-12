@@ -1,6 +1,6 @@
 ---
 title: Medium 542 - 01 Matrix
-description: 使用 BFS 解決 01 矩陣問題，找出每個位置到最近的 0 的距離。
+description: In this blog I will share a solution to the 01 Matrix problem.
 date: 2025-02-13
 read: '10'
 ---
