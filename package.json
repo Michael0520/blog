@@ -46,6 +46,7 @@
     "@nuxtjs/robots": "5.2.2",
     "@nuxtjs/sitemap": "^7.2.4",
     "@vercel/analytics": "^1.5.0",
+    "@vitest/ui": "^3.0.5",
     "@vueuse/core": "^12.5.0",
     "cheerio": "^1.0.0",
     "cross-env": "^7.0.3",
@@ -59,6 +60,7 @@
     "shadcn-docs-nuxt": "^0.8.14",
     "simplex-noise": "^4.0.3",
     "sitemap": "^8.0.0",
+    "vitest": "^3.0.5",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "xml2js": "^0.6.2"
@@ -70,13 +72,13 @@
     "@commitlint/format": "^19.5.0",
     "@inspira-ui/plugins": "^0.0.1",
     "@types/rss": "^0.0.32",
-    "@vitest/ui": "^3.0.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "conventional-changelog-atom": "^5.0.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
-    "vitest": "^3.0.5"
+    "taze": "^18.5.0"
+
   },
   "pnpm": {
     "neverBuiltDependencies": [
