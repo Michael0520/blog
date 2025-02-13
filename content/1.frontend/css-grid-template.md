@@ -198,11 +198,6 @@ Grid Template Areas 的一大優勢是能輕鬆實現響應式 Layout ：
 </div>
 ```
 
-## 結論
-
-Grid Template Areas 為複雜的 CMS Layout 提供了一個優雅的解決方案，
-不僅提供了讓 Layout 的程式碼更容易理解和維護，也大大提升了開發效率。
-
 ## 實際應用場景
 
 ### 1. 後台管理系統
@@ -260,3 +255,8 @@ Grid Template Areas 為複雜的 CMS Layout 提供了一個優雅的解決方案
 - 商品資訊
 - 相關商品
 - 詳細描述
+
+## 結論
+
+Grid Template Areas 為複雜的 CMS Layout 提供了一個優雅的解決方案，
+不僅提供了讓 Layout 的程式碼更容易理解和維護，也大大提升了開發效率。
