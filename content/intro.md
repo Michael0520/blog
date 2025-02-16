@@ -9,6 +9,8 @@ read: '1'
 
 # Hi, I'm Michael Lo 👋
 
+![Logo of Michael Lo](https://www.michaello.me/logo.jpg)
+
 目前專注在 Web 開發的軟體工程師，擅長使用 Next 和 Nuxt 框架。
 
 我是一個懶惰的人，所以對我來說，重複造輪子是一件讓人頭痛的事，所以我喜歡學習各種技術，讓明天的我可以擁有更多時間來發呆。
