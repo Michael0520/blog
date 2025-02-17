@@ -1,7 +1,6 @@
 ---
 title: Countdown Timer
 description: In this blog I will share a solution to the Countdown Timer interview problem.
-icon: 'mdi-light:pencil'
 date: 2025-02-17
 read: '15'
 ---
