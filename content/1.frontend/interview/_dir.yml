@@ -1,0 +1,4 @@
+title: Interview
+icon: lucide:rocket
+navigation.redirect: /frontend/interview/countdown-timer
+collapse: true
