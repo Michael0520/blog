@@ -1,4 +1,4 @@
 title: Interview
-icon: lucide:rocket
+icon: mdi-light:pencil
 navigation.redirect: /frontend/interview/countdown-timer
 collapse: true
