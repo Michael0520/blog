@@ -1,6 +1,6 @@
 ---
 title: Pipe Function Implementation
-description: 探討如何實作一個 pipe 函數，將多個函數組合成單一函數
+description: In this blog I will Share a solution to the Pipe Function Implementation problem.
 date: 2025-02-18
 read: '10'
 ---
