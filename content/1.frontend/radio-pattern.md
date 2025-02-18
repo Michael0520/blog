@@ -1,7 +1,7 @@
 ---
 title: R.A.D.I.O Pattern
 description: 探討 Netflix 的前端開發框架與設計模式
-icon: 'fa6-solid:toolbox'
+icon: lucide:book-open-text
 date: 2025-02-15
 read: '15'
 ---
