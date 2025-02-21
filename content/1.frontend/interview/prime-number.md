@@ -446,7 +446,7 @@ await Promise.all([
    - 可中斷的運算
    - 結果共享機制
 
-## 測試策略
+## 測試範例
 
 ```typescript
 describe('Prime Calculator', () => {
