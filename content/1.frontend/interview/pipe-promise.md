@@ -1,5 +1,5 @@
 ---
-title: Pipe Promise Implementation
+title: Pipe Promise
 description: Implement Promise Pipeline
 date: 2025-02-22
 read: '10'

@@ -1,5 +1,5 @@
 ---
-title: Prime Number Implementation
+title: Prime Number
 description: Advanced prime number implementations with non-blocking calculation and caching optimization
 date: 2025-02-21
 read: '15'
