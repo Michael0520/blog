@@ -16,7 +16,7 @@ read: '10'
   Function Memoization Implementation
 
   #description
-  難度：Medium
+  難度：Easy
 
   #content
   ## 題目描述
