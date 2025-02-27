@@ -8,7 +8,7 @@ read: '12'
 ::div{class="mt-6"}
   ::card
   ---
-  icon: lucide:layers
+  icon: lucide:book-open
   icon-size: 26
   ---
 
