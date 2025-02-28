@@ -2,7 +2,7 @@
 title: Hierarchical Checkbox Selection
 description: Implement a Hierarchical Checkbox Selection System
 date: 2025-02-27
-read: '12'
+read: '15'
 ---
 
 ::div{class="mt-6"}
