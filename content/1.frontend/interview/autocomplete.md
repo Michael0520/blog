@@ -82,6 +82,8 @@ read: '20'
 
   ## 系統架構設計
 
+  ![Autocomplete Component](/images/autocomplete/Autocomplete-Architecture.png)
+
   ### 1. 整體架構
 
   優先採用 TypeScript 來確保型別安全性，並搭配 React 來實作元件，以下是核心 interface：
