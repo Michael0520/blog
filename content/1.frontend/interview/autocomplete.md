@@ -1,11 +1,9 @@
 ---
-title: Autocomplete 系統設計
+title: Autocomplete System design
 description: A comprehensive guide to designing a modern autocomplete component with React and TypeScript
 date: 2025-03-09
 read: '20'
 ---
-
-# Autocomplete 系統設計指南
 
 ::div{class="mt-6"}
   ::card
@@ -14,13 +12,20 @@ read: '20'
   icon-size: 26
   ---
   #title
-  設計現代化的自動完成元件
+  Design an autocomplete UI component that allows users to enter a search term into a text box, a list of search results appear in a popup and the user can select a result.
 
   #description
   難度：Hard
 
   #content
-  目標：實作一個高效能、可擴展的自動完成元件，適用於各種應用場景
+  Some real-life examples where you might have seen this component in action:
+
+  - YouTube search bar on youtube.com where you see a list of primarily text-based suggestions.
+  - Facebook's search input where you see a list of rich results. The results can be friends, celebrities, groups, pages, etc.
+
+  ![YouTube Search Bar AutoComplete](/images//autocomplete/Autocomplete-searchbar.png)
+
+  A back end API is provided which will return a list of results based on the search query.
 
   #footer
   :badge[React]
