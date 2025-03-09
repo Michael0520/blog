@@ -22,20 +22,6 @@ read: '20'
   #content
   目標：實作一個高效能、可擴展的自動完成元件，適用於各種應用場景
 
-  ::alert{title="核心功能" type="info"}
-  1. 即時搜尋建議
-  2. 智能快取系統
-  3. 錯誤處理機制
-  4. 無障礙設計支援
-  ::
-
-  ::alert{title="技術特色" type="success"}
-  - 高效能：智能快取、請求防抖
-  - 可擴展：自訂 UI、多種資料來源
-  - 使用者體驗：即時回饋、錯誤處理
-  - 無障礙：完整的 ARIA 支援
-  ::
-
   #footer
   :badge[React]
   :badge[TypeScript]
