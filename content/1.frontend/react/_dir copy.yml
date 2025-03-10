@@ -1,0 +1,4 @@
+title: React
+icon: lucide:rocket
+navigation.redirect: /frontend/react/hooks-comparison
+collapse: true
