@@ -5,6 +5,16 @@
   "github": {
     "silent": true
   },
+  "rewrites": [
+    {
+      "source": "/talks/(.*)",
+      "destination": "https://talks-michaello.vercel.app/$1"
+    },
+    {
+      "source": "/talks",
+      "destination": "https://talks-michaello.vercel.app/"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
