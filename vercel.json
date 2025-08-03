@@ -11,12 +11,16 @@
       "destination": "https://talks-michaello.vercel.app/:match*"
     },
     {
-      "source": "/projects/:project/:match*",
-      "destination": "https://projects-:project.vercel.app/:match*"
+      "source": "/projects/beautiful-code-snap",
+      "destination": "https://projects-beautiful-code-snap.vercel.app"
     },
     {
-      "source": "/projects/:project",
-      "destination": "https://projects-:project.vercel.app"
+      "source": "/projects/beautiful-code-snap/",
+      "destination": "https://projects-beautiful-code-snap.vercel.app/"
+    },
+    {
+      "source": "/projects/beautiful-code-snap/:match*",
+      "destination": "https://projects-beautiful-code-snap.vercel.app/:match*"
     }
   ],
   "headers": [
