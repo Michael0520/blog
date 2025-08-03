@@ -12,11 +12,11 @@
     },
     {
       "source": "/projects/:project/:match*",
-      "destination": "https://:project-michaello.vercel.app/:match*"
+      "destination": "https://projects-:project.vercel.app/:match*"
     },
     {
       "source": "/projects/:project",
-      "destination": "https://:project-michaello.vercel.app"
+      "destination": "https://projects-:project.vercel.app"
     }
   ],
   "headers": [
