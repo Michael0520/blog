@@ -9,6 +9,14 @@
     {
       "source": "/talks/:match*",
       "destination": "https://talks-michaello.vercel.app/:match*"
+    },
+    {
+      "source": "/projects/:project/:match*",
+      "destination": "https://:project-michaello.vercel.app/:match*"
+    },
+    {
+      "source": "/projects/:project",
+      "destination": "https://:project-michaello.vercel.app"
     }
   ],
   "headers": [
